@@ -78,13 +78,13 @@ const deleteProduct = async (id) => {
 
 // Agregar nuevos productos
 
-addProduct("Remera Star Wars", "Remera negra talle XL con diseño Star Wars", 12000, "http://www.ropacanchera.com/remeras-star-wars-1", "CGTP1234", 10)
+// addProduct("Remera Star Wars", "Remera negra talle XL con diseño Star Wars", 12000, "http://www.ropacanchera.com/remeras-star-wars-1", "CGTP1234", 10)
 
-addProduct("Pantalón Marvel", "Pantalón blanco talle 40 con diseño Marvel", 25000, "http://www.ropacanchera.com/pantalones-marvel-3", "CGTP1235", 5)
+// addProduct("Pantalón Marvel", "Pantalón blanco talle 40 con diseño Marvel", 25000, "http://www.ropacanchera.com/pantalones-marvel-3", "CGTP1235", 5)
 
-addProduct("Campera My Hero Academia", "Campera negra talle S con diseño My Hero Academia", 50000, "http://www.ropacanchera.com/camperas-my-hero-academia-6", "CGTP1236", 2)
+// addProduct("Campera My Hero Academia", "Campera negra talle S con diseño My Hero Academia", 50000, "http://www.ropacanchera.com/camperas-my-hero-academia-6", "CGTP1236", 2)
 
-addProduct("Remera My Hero Academia", "Remera negra talle XS con diseño My Hero Academia", 12000, "http://www.ropacanchera.com/remeras-my-hero-academia-2", "CGTP1237", 8)
+// addProduct("Remera My Hero Academia", "Remera negra talle XS con diseño My Hero Academia", 12000, "http://www.ropacanchera.com/remeras-my-hero-academia-2", "CGTP1237", 8)
 
 getProducts()
 
@@ -96,7 +96,7 @@ console.log("----------------Prueba: Buscar un producto cuyo id no existe")
 
 getProductById(5)
 
-// Prueba: Actualizar la información de un producto
+//Prueba: Actualizar la información de un producto
 
 updateProduct(3, {
     title: "Campera Dragon Ball",
