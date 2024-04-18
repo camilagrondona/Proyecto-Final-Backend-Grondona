@@ -1,17 +1,28 @@
-import express from "express"
-import { addProduct, getProducts, getProductById, updateProduct, deleteProduct } from "./data/fs/productManager.js"
+import express from "express"  
 
-const app = express()
+import { addProduct, getProducts, getProductById, updateProduct, deleteProduct } from "./data/fs/productManager.js" // Importamos los métodos del productManager 
+
+const app = express() // Creamos la app de express ejecutando la función. Se creó el servidor.
+
+// Inicializamos la app de express configurando: 
+
+// 1) El puerto donde se inicializa el servidor
 
 const port = 8080
 
+// 2) Función ready, para que cuando el servidor esté inicializado nos muestre en consola el siguiente mensaje: 
+
 const ready = console.log("Server ready on port " + port)
 
-app.listen(port, ready)
+// Para inicializar el servidor, necesito escuchar el puerto 8080 y luego de que se levantó ejecutar la callback ready 
 
-app.use(express.urlencoded({ extended: true }))
+app.listen(port, ready) // Está inicializado pero aún no está funcionando; para ello, hay que correr en la consola el comando "npm run dev"
 
-//Solicitudes / peticiones
+// Configuramos el servidor con determinadas funcionalidades:
+
+app.use(express.urlencoded({ extended: true })) // Para leer querys y params
+
+// Configuración de solicitudes / peticiones
 
 app.get("/", index)
 app.get("/products", read)
@@ -22,7 +33,7 @@ app.get("/products/:pid", readOne) // parámetro pid (product ID)
 function index(req, res) {
     try {
         const message = "Welcome to Coder-Server"
-        return res.json({ status: 200, response: message })
+        return res.json({ status: 200, response: message }) // Respuesta al cliente. Tenemos 3 formas de enviarle información: método send, render o json. Por eso elegimos el json en este caso. 
     } catch (error) {
         console.log(error)
         return res.json({ status: 500, response: error.message })
@@ -59,12 +70,12 @@ async function readOne(req, res) {
         if (one) {
             return res.json({ status: 200, response: one })
         } else {
-            const error = new Error("Not found")
-            error.status = 404
-            throw error
+            const error = new Error("Not found") // se crea con el mensaje de error
+            error.status = 404 // se configura el estado 
+            throw error // se arroja el error para manejarlo con el catch
         }
     } catch (error) {
         console.log(error)
-        return res.json({ status: error.status || 500, response: error.message || "Error" })
+        return res.json({ status: error.status || 500, response: error.message || "Error" }) // dejamos el error 500 o el "ERROR" con el operador or por si los anteriores no existen
     }
 }
