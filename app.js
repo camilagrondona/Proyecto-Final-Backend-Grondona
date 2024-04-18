@@ -11,7 +11,15 @@ app.listen(port, ready)
 
 app.use(express.urlencoded({ extended: true }))
 
-app.get("/", (req, res) => {
+//Solicitudes / peticiones
+
+app.get("/", index)
+app.get("/products", read)
+app.get("/products/:pid", readOne) // parámetro pid (product ID)
+
+//Index
+
+function index(req, res) {
     try {
         const message = "Welcome to Coder-Server"
         return res.json({ status: 200, response: message })
@@ -19,10 +27,7 @@ app.get("/", (req, res) => {
         console.log(error)
         return res.json({ status: 500, response: error.message })
     }
-})
-
-app.get("/products", read)
-app.get("/products/:pid", readOne) // parámetro pid (product ID)
+}
 
 // Callback read (para leer todos los productos) - Query limit
 
