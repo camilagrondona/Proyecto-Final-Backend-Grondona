@@ -4,7 +4,7 @@ let products = [] // Creamos la lista de productos vacía
 
 let pathFile = "./data/fs/files/products.json" // Ruta de los productos
 
-// Crear un producto nuevo
+// Crear un producto nuevo (addProduct)
 
 const addProduct = async (title, description, price, thumbnail, code, stock) => {
     const newProduct = {
@@ -102,6 +102,10 @@ const deleteProduct = async (id) => {
 
 getProducts()
 
+export { addProduct, getProducts, getProductById, updateProduct, deleteProduct }
+
+// Tests desafíos anteriores
+
 // console.log("----------------Prueba: Buscar un producto por su id")
 
 // getProductById(1)
@@ -120,5 +124,3 @@ getProducts()
 // // Prueba: Borrar un producto
 
 // deleteProduct(2)
-
-export { addProduct, getProducts, getProductById, updateProduct, deleteProduct }
