@@ -1,11 +1,11 @@
 import { Router } from "express"
-import { addProduct, getProducts, getProductById, updateProduct, deleteProduct } from "../data/fs/productManager.js" // Importamos los métodos del productManager
+import { addProduct, getProducts, getProductById, updateProduct, deleteProduct } from "../managers/productManager.js" // Importamos los métodos del productManager
 
 const router = Router()
 
 // Configuración de solicitudes / peticiones
 
-router.post ("/", create)
+router.post("/", create)
 router.get("/", read)
 router.get("/:pid", readOne) // parámetro pid (product ID)
 router.put("/:pid", update)
@@ -13,14 +13,14 @@ router.delete("/:pid", destroy)
 
 // Callback create (para crear un nuevo producto)
 
-async function create (req, res) {
+async function create(req, res) {
     try {
-        const data = req.body // capturamos los datos en la variable data y con el método create creamos un nuevo producto 
-        const one = await addProduct (data) 
-        return res.json ({status: 201, response: one }) //201 es el estado de creación exitosa
+        const product = req.body // capturamos los datos en la variable product y con el método create creamos un nuevo producto 
+        const newProduct = await addProduct(product)
+        return res.json({ status: 201, response: newProduct }) //201 es el estado de creación exitosa
     } catch (error) {
         console.log(error)
-        return res.json({ status: 500, response: error.message })
+        return res.json({ status: error.status || 500, response: error.message || "Error" })
     }
 }
 
@@ -28,12 +28,12 @@ async function create (req, res) {
 
 async function read(req, res) {
     try {
-        const {limit} = req.query
+        const { limit } = req.query
         let all = await getProducts(limit)
         return res.json({ status: 200, response: all })
     } catch (error) {
         console.log(error)
-        return res.json({ status: 500, response: error.message })
+        return res.json({ status: error.status || 500, response: error.message || "Error" })
     }
 }
 
@@ -52,7 +52,7 @@ async function readOne(req, res) {
         }
     } catch (error) {
         console.log(error)
-        return res.json({ status: error.status || 500, response: error.message || "Error" }) // Dejamos el error 500 o el "ERROR" con el operador or por si los anteriores no existen
+        return res.json({ status: error.status || 500, response: error.message || "Error" }) 
     }
 }
 
@@ -61,37 +61,26 @@ async function readOne(req, res) {
 async function update(req, res) {
     try {
         const { pid } = req.params // capturamos el parámetro. De ese objeto de requerimiento req.params desestructuramos el product ID. 
-        const data = req.body // capturamos el objeto con las modificaciones
-        const one = await updateProduct (pid, data)// actualizamos el recurso pasándole el ID y la información a modificar
-        if (one) {
-            return res.json ({status: 200, response: one})// condicionamos y enviamos la respuesta al cliente con el objeto actualizado
-        } // tiene que tirar un error si el id que pasamos no es correcto / no existe
-        const error = new Error ("Not found")
-        error.status = 404
-        throw error
+        const product = req.body // capturamos el objeto con las modificaciones
+        const updatedProduct = await updateProduct(pid, product)// actualizamos el recurso pasándole el ID y la información a modificar (product que recibimos por el body)
+        return res.json({ status: 200, response: updatedProduct })//enviamos la respuesta al cliente con el objeto actualizado
     } catch (error) {
         console.log(error)
-        return res.json({ status: error.status || 500, response: error.message || "Error" }) // dejamos el error 500 o el "ERROR" con el operador or por si los anteriores no existen
+        return res.json({ status: error.status || 500, response: error.message || "Error" })
     }
 }
 
 // Callback destroy (para eliminar un producto según su ID)
 
-async function destroy (req,res) {
+async function destroy(req, res) {
     try {
-        const {pid} = req.params // capturamos el id
-        const one = await getProducts (pid) // buscar el recurso 
-        if (one) { // si existe, eliminamos el recurso
-            await deleteProduct (pid)
-            return res.json ({status: 200, response: one})
-        } // en caso de que no existe definimos el error
-        const error = new Error ("Not found")
-        error.status = 404
-        throw error
-        // condicionamos y enviamos la respuesta al cliente
-    } catch (error) {
-        console.log(error)
-        return res.json({ status: error.status || 500, response: error.message || "Error" }) // dejamos el error 500 o el "ERROR" con el operador or por si los anteriores no existen
-    }
+        const { pid } = req.params // capturamos el id
+        await deleteProduct(pid) // eliminamos el recurso 
+        return res.json({ status: 200, message: "Producto eliminado"})
+} catch (error) {
+    console.log(error)
+    return res.json({ status: error.status || 500, response: error.message || "Error" }) // dejamos el error 500 o el "ERROR" con el operador or por si los anteriores no existen
 }
+}
+
 export default router

@@ -7,7 +7,7 @@ let pathFile = "./src/data/fs/files/products.json" // Ruta de los productos
 // Crear un producto nuevo (addProduct)
 
 const addProduct = async (product) => {
-    const {title, description, price, thumbnail, code, stock} = product
+    const {title, description, price, thumbnail, code, stock, status} = product
     await getProducts()
     const newProduct = {
         id: products.length + 1, 
@@ -16,7 +16,8 @@ const addProduct = async (product) => {
         price,
         thumbnail,
         code,
-        stock
+        stock,
+        status: true
     }
 
     // Controlamos que todos los campos sean obligatorios
@@ -65,12 +66,15 @@ const getProductById = async (id) => {
 
 const updateProduct = async (id, dataProduct) => {
     await getProducts()
-    const index = products.findIndex(product => product.id === id) // Buscamos el valor índice de nuestro producto
+    console.log("Actualizando producto con ID:", id)
+    console.log("Información actualizada:", dataProduct)
+    const index = products.findIndex((product) => product.id === id) // Buscamos el valor índice de nuestro producto
     products[index] = {
         ...products[index], // hacemos una copia de las propiedades del product
         ...dataProduct // sobreescribimos las propiedades que se reciban por dataProduct
     }
     await fs.promises.writeFile(pathFile, JSON.stringify(products)) // sobreescribimos el archivo con la nueva información
+    console.log("Producto actualizado correctamente")
 }
 
 // Eliminar un producto (deleteProduct)
@@ -80,6 +84,7 @@ const deleteProduct = async (id) => {
     products = products.filter(product => product.id !== id) // devuelve todos los productos menos el del id que recibe por parámetro
     await fs.promises.writeFile(pathFile, JSON.stringify(products))
 }
+
 
 export { addProduct, getProducts, getProductById, updateProduct, deleteProduct }
 
