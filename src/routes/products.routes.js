@@ -62,7 +62,7 @@ async function update(req, res) {
     try {
         const { pid } = req.params // capturamos el parámetro. De ese objeto de requerimiento req.params desestructuramos el product ID. 
         const product = req.body // capturamos el objeto con las modificaciones
-        const updatedProduct = await updateProduct(pid, product)// actualizamos el recurso pasándole el ID y la información a modificar (product que recibimos por el body)
+        const updatedProduct = await updateProduct(+pid, product)// actualizamos el recurso pasándole el ID y la información a modificar (product que recibimos por el body)
         return res.json({ status: 200, response: updatedProduct })//enviamos la respuesta al cliente con el objeto actualizado
     } catch (error) {
         console.log(error)
@@ -75,7 +75,7 @@ async function update(req, res) {
 async function destroy(req, res) {
     try {
         const { pid } = req.params // capturamos el id
-        await deleteProduct(pid) // eliminamos el recurso 
+        await deleteProduct(+pid) // eliminamos el recurso 
         return res.json({ status: 200, message: "Producto eliminado"})
 } catch (error) {
     console.log(error)
