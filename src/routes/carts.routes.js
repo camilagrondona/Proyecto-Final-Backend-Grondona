@@ -33,6 +33,7 @@ async function read(req, res) {
         return res.json({ status: error.status || 500, response: error.message || "Error" })
     }
 }
+
 // Callback readOne (para buscar un producto según su ID y leer los productos)
 
 async function readOne(req, res) {
@@ -51,7 +52,7 @@ async function readOne(req, res) {
 async function newProductToCart(req, res) {
     try {
         const { cid, pid } = req.params
-        const cart = await addProductToCart(cid, pid)
+        const cart = await addProductToCart(+cid, +pid) // Transforma en número el dato que estamos recibiendo. Es como el parseInt
         return res.json({ status: 201, response: cart }) //201 es el estado de creación exitosa
     } catch (error) {
         console.log(error)

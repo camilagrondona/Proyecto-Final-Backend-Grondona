@@ -39,9 +39,9 @@ const getCartById = async (cid) => {
 // Agregar un producto al carrito (addProductToCart)
 
 const addProductToCart = async (cid, pid) => {
-    await getCarts () 
-    const index = carts.findIndex (c => c.id === cid) 
-    if (index === -1) return `No se encontró el carrito con el id ${cid}`
+    await getCarts () // llamamos a la función para que lea el JSON y nuestros carritos se asignen a la variable 
+    const index = carts.findIndex (c => c.id === cid) // que encuentre la posición índice del carrito que estamos recibiendo por parámetro
+    if (index === -1) return `No se encontró el carrito con el id ${cid}` // Si no encuentra la posición índice indicada, devuelve mensaje de error
     carts[index].products.push({
         product: pid,
         quantity: 1
