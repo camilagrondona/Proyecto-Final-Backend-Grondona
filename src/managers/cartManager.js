@@ -39,15 +39,31 @@ const getCartById = async (cid) => {
 // Agregar un producto al carrito (addProductToCart)
 
 const addProductToCart = async (cid, pid) => {
-    await getCarts () // llamamos a la función para que lea el JSON y nuestros carritos se asignen a la variable 
-    const index = carts.findIndex (c => c.id === cid) // que encuentre la posición índice del carrito que estamos recibiendo por parámetro
-    if (index === -1) return `No se encontró el carrito con el id ${cid}` // Si no encuentra la posición índice indicada, devuelve mensaje de error
-    carts[index].products.push({
-        product: pid,
-        quantity: 1
-    })
+    try {
+        let carts = await fs.promises.readFile(pathFile, "utf8") // Leemos los carritos desde el archivo carts.json
+        carts = JSON.parse(carts)
 
-    return carts [index]
+        const index = carts.findIndex(c => c.id === cid) // Buscamos el carrito por su ID (que recibimos por parámetro)
+
+        if (index === -1) return `No se encontró el carrito con el ID ${cid}` // Si no encuentra la posición índice indicada, devuelve mensaje de error
+
+        // Verificamos si el producto ya está en el carrito
+        const cart = carts[index]
+        const productIndex = cart.products.findIndex(p => p.product === pid)
+
+        if (productIndex === -1) {
+            cart.products.push({ product: pid, quantity: 1 }) // Si el producto no está en el carrito, lo agrega de 1 en 1
+        } else {
+            cart.products[productIndex].quantity++
+        }// Si el producto ya está en el carrito, aumenta la cantidad en 1
+
+        await fs.promises.writeFile(pathFile, JSON.stringify(carts), "utf8") // Escribimos los cambios nuevamente en el archivo carts.json
+        return cart
+    } catch (error) {
+        console.error("Error al agregar producto al carrito:", error)
+        throw new Error("Error al agregar producto al carrito")
+    }
 }
 
-export {getCarts, createCart, getCartById, addProductToCart}
+export { getCarts, createCart, getCartById, addProductToCart }
+
