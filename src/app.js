@@ -1,5 +1,8 @@
 import express from "express"   
 import router from "./routes/index.js"
+import {connectMongoDB} from "./config/mongoDb.config.js"
+
+connectMongoDB() // Conexión con MongoDB
 
 const app = express() // Creamos la app de express ejecutando la función. Se creó el servidor.
 

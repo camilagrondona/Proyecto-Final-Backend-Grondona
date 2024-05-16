@@ -1,12 +1,11 @@
-import { Router } from "express";
-import { getCarts, createCart, getCartById, addProductToCart } from "../managers/cartManager.js" // Importamos los métodos del cartManager
+import { Router } from "express"
+import cartDao from "../dao/mongoDao/cart.dao.js"
 
 const router = Router()
 
 // Configuración de solicitudes / peticiones
 
 router.post("/", create)
-router.get("/", read)
 router.get("/:cid", readOne) // parámetro cid (cart ID)
 router.post("/:cid/product/:pid", newProductToCart)
 
@@ -14,20 +13,9 @@ router.post("/:cid/product/:pid", newProductToCart)
 
 async function create(req, res) {
     try {
-        const cart = await createCart()
-        return res.json({ status: 201, response: cart }) //201 es el estado de creación exitosa
-    } catch (error) {
-        console.log(error)
-        return res.json({ status: error.status || 500, response: error.message || "Error" })
-    }
-}
+        const cart = await cartDao.create()
+        return res.status(201).json({ status: "Success", payload: cart }) //201 es el estado de creación exitosa
 
-// Callback read (para obtener los carritos)
-
-async function read(req, res) {
-    try {
-        let cart = await getCarts()
-        return res.json({ status: 200, response: cart })
     } catch (error) {
         console.log(error)
         return res.json({ status: error.status || 500, response: error.message || "Error" })
@@ -38,9 +26,10 @@ async function read(req, res) {
 
 async function readOne(req, res) {
     try {
-        const { cid } = req.params
-        const cart = await getCartById(+cid) // Transforma en número el dato que estamos recibiendo. Es como el parseInt
-        return res.json({ status: 200, response: cart })
+        const { cid } = req.params // Se recibe por parámetro el cart ID
+        const cart = await cartDao.getById(cid) 
+        if (!cart) return res.status(404).json ({status: "Error", message: "Not Found"}) // Manejo del error
+        return res.status(200).json({ status: "Success", payload: cart })
     } catch (error) {
         console.log(error)
         return res.json({ status: error.status || 500, response: error.message || "Error" })
@@ -51,9 +40,11 @@ async function readOne(req, res) {
 
 async function newProductToCart(req, res) {
     try {
-        const { cid, pid } = req.params
-        const cart = await addProductToCart(+cid, +pid) // Transforma en número el dato que estamos recibiendo. Es como el parseInt
-        return res.json({ status: 201, response: cart }) //201 es el estado de creación exitosa
+        const { cid, pid } = req.params // se reciben por parámetro el cart ID y el product ID
+        const cart = await cartDao.addProductToCart(cid, pid)
+        if (cart.product == false) return res.status(404).json ({status: "Error", message: "Product Not Found"}) // Manejo del error del producto
+        if (cart.cart == false) return res.status(404).json ({status: "Error", message: "Cart Not Found"}) // Manejo del error del carrito
+        return res.status(200).json({ status: "Success", payload: cart }) // En caso de que se pasen ambas validaciones y esté todo correcto, devolvemos el carrito 
     } catch (error) {
         console.log(error)
         return res.json({ status: error.status || 500, response: error.message || "Error" })
