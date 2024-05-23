@@ -7,7 +7,7 @@ const router = Router()
 
 router.post("/", create)
 router.get("/", read)
-router.get("/:pid", readOne) // parámetro pid (product ID)
+router.get("/:pid", readOne) 
 router.put("/:pid", update)
 router.delete("/:pid", destroy)
 
@@ -28,9 +28,29 @@ async function create(req, res) {
 
 async function read(req, res) {
     try {
-        // const { limit } = req.query
-        const all = await productDao.getAll()
-        return res.status(200).json({ status: "Success", payload: all })
+        const { limit, page, sort, category, status } = req.query // queries
+        const options = {
+            limit: limit || 10, // límite que recibimos por parámetro y sino por defecto serán 10
+            page: page || 1,
+            sort: {
+                price: sort === "asc" ? 1 : -1
+            }, // por defecto viene en orden descendente
+            lean: true
+        }
+
+        if (status) {
+            const products = await productDao.getAll({ status: status }, options)
+            return res.status(200).json({ products })
+        }
+
+        if (category) {
+            const products = await productDao.getAll({ category: category }, options)
+            return res.status(200).json({ products })
+        }
+
+        const products = await productDao.getAll({}, options)
+
+        return res.status(200).json({ status: "Success", products })
     } catch (error) {
         console.log(error)
         return res.json({ status: error.status || 500, response: error.message || "Error" })
@@ -41,10 +61,10 @@ async function read(req, res) {
 
 async function readOne(req, res) {
     try {
-        const { pid } = req.params 
-        const one = await productDao.getById(pid) 
+        const { pid } = req.params
+        const one = await productDao.getById(pid)
         if (!one) return res.status(404).json({ status: "Error", message: "Not found" })
-        
+
         return res.status(200).json({ status: "Success", payload: one }) // Express por defecto manda un status 200, así que en caso de no especificarlo no afectaría 
     } catch (error) {
         console.log(error)
@@ -76,7 +96,7 @@ async function destroy(req, res) {
         const { pid } = req.params // capturamos el id
         const product = await productDao.deleteOne(pid) // eliminamos el recurso 
         if (!product) return res.status(404).json({ status: "Error", message: "Not found" }) // Si nos devuelve un false (porque no ha eliminado nada, se muestra el mensaje de error)
-        
+
         return res.status(200).json({ status: "Success", payload: "Producto eliminado" })
     } catch (error) {
         console.log(error)

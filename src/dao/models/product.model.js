@@ -1,4 +1,5 @@
 import mongoose from "mongoose"
+import mongoosePaginate from "mongoose-paginate-v2"
 
 const productCollection = "products" // Nombre de la colección de productos
 
@@ -30,8 +31,14 @@ const productSchema = new mongoose.Schema({
     status: {
         type: Boolean,
         default: true
+    },
+    category: {
+        type: String,
+        require: true
     }
 })
+
+productSchema.plugin(mongoosePaginate) // Plugin instalado para utilizar el paginate
 
 // Modelo de producto
 

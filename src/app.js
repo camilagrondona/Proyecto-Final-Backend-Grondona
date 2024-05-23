@@ -16,7 +16,7 @@ app.use("/api", router) // Agregamos el prefijo api a nuestras rutas
 
 // 1) El puerto donde se inicializa el servidor
 
-const port = 8080
+const port = 3000
 
 // 2) Función ready, para que cuando el servidor esté inicializado nos muestre en consola el siguiente mensaje: 
 
