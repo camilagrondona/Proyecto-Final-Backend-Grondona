@@ -1,6 +1,8 @@
 import express from "express"   
 import router from "./routes/index.js"
 import {connectMongoDB} from "./config/mongoDb.config.js"
+import session from "express-session"
+import MongoStore from "connect-mongo"
 
 connectMongoDB() // Conexión con MongoDB
 
@@ -10,6 +12,18 @@ const app = express() // Creamos la app de express ejecutando la función. Se cr
 
 app.use(express.json()) // Para manejar json
 app.use(express.urlencoded({ extended: true })) // Para leer querys y params
+
+// Configuración de Mongo (para trabajar con las session):
+
+app.use(session({
+    store: MongoStore.create({
+        mongoUrl: "mongodb+srv://grondonacamila:4XIAX0e0VL2jCG1O@e-commerce.na6kuai.mongodb.net/ecommerce",
+        ttl: 15 // tiempo de sesión 15 min
+    }),
+    secret: "CodigoSecreto",
+    resave: true
+}))
+
 app.use("/api", router) // Agregamos el prefijo api a nuestras rutas
 
 // Inicializamos la app de express configurando: 

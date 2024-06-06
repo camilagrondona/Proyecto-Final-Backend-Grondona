@@ -6,7 +6,7 @@ const router = Router()
 // Configuración de solicitudes / peticiones
 
 router.post("/", create)
-router.get("/", read)
+router.get("/", read) 
 router.get("/:pid", readOne) 
 router.put("/:pid", update)
 router.delete("/:pid", destroy)
