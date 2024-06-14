@@ -3,28 +3,48 @@ import router from "./routes/index.js"
 import {connectMongoDB} from "./config/mongoDb.config.js"
 import session from "express-session"
 import MongoStore from "connect-mongo"
+import passport from "passport"
+import initializePassport from "./config/passport.config.js"
+import cookieParser from "cookie-parser"
 
-connectMongoDB() // Conexión con MongoDB
+// Conexión con MongoDB
 
-const app = express() // Creamos la app de express ejecutando la función. Se creó el servidor.
+connectMongoDB() 
 
-// Configuramos el servidor con determinadas funcionalidades (middlewares):
+// Creamos la app de express ejecutando la función. Se creó el servidor
+
+const app = express() 
+
+// Configuramos el servidor con determinadas funcionalidades (middlewares)
 
 app.use(express.json()) // Para manejar json
 app.use(express.urlencoded({ extended: true })) // Para leer querys y params
+app.use(cookieParser("secret")) // Cookie parser - Pide un código secreto para tener cookies cifradas, por eso le pasamos secret
 
-// Configuración de Mongo (para trabajar con las session):
+// Configuración de Mongo (para trabajar con las session)
 
 app.use(session({
     store: MongoStore.create({
-        mongoUrl: "mongodb+srv://grondonacamila:4XIAX0e0VL2jCG1O@e-commerce.na6kuai.mongodb.net/ecommerce",
+        mongoUrl: "",
         ttl: 15 // tiempo de sesión 15 min
     }),
     secret: "CodigoSecreto",
-    resave: true
+    resave: true,
+    saveUninitialized: true
 }))
 
-app.use("/api", router) // Agregamos el prefijo api a nuestras rutas
+// Middlewares de passport
+
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Función que inicializa las estrategias 
+
+initializePassport() 
+
+// Agregamos el prefijo api a nuestras rutas
+
+app.use("/api", router) 
 
 // Inicializamos la app de express configurando: 
 
