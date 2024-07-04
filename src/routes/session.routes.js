@@ -3,10 +3,12 @@ import passport from "passport"
 import userDao from "../dao/mongoDao/user.dao.js"
 import { isValidPassword } from "../utils/hashPassword.js"
 import { createToken, verifyToken } from "../utils/jwt.js"
+import { passportCall, authorization } from "../middlewares/passport.middleware.js"
+import { userLoginValidator } from "../validators/userLogin.validator.js"
 
 const router = Router()
 
-router.post("/register", passport.authenticate("register"), async (req, res) => {
+router.post("/register", passportCall("register"), async (req, res) => {
     try {
         res.status(201).json({ status: "success", message: "Usuario creado con éxito" })
     } catch (error) {
@@ -19,6 +21,8 @@ router.post("/register", passport.authenticate("register"), async (req, res) => 
 
 // Login de passport local 
 
+// Después del passport.authenticate le pasamos el nombre de la estrategia de autenticación que vamos a utilizar en ese endpoint
+
 router.post("/login", passport.authenticate("login"), async (req, res) => {
     try {
         return res.status(200).json({ status: "Success", payload: req.user }) // Si pasa las verificaciones nos devuelve los datos que passport almacena en nuestro usuario
@@ -30,7 +34,7 @@ router.post("/login", passport.authenticate("login"), async (req, res) => {
 
 // Json web token
 
-router.post("/jwt", async (req, res) => {
+router.post("/jwt", userLoginValidator, async (req, res) => {
     try {
         const { email, password } = req.body // Recibimos por body estos datos para hacer el login del usuario
         const user = await userDao.getByEmail(email)
@@ -46,12 +50,9 @@ router.post("/jwt", async (req, res) => {
 
 // Verificación del token
 
-router.get("/current", (req, res) => {
+router.get("/current", passportCall("jwt"), authorization("user"), (req, res) => {
     try {
-        const token = req.cookies.token // Recibimos el token desde la cookie en la que está almacenado 
-        const checkToken = verifyToken(token) // verificamos el token que recibimos por body
-        if(!checkToken) return res.status(403).json({status: "Error", message: "Invalid token"}) // En caso de que no pase la verificación, retornamos un status 403 (no permitimos el acceso)
-        return res.status(200).json({ status: "success", payload: checkToken }) // En caso de pasar la verificación, devolvemos la info que tenemos del token
+        return res.status(200).json({ status: "success", payload: req.user }) // En caso de pasar la verificación, devolvemos la info que tenemos del token
     } catch (error) {
         console.log(error)
         res.status(500).json({ status: "Error", message: "Internal Server Error" })

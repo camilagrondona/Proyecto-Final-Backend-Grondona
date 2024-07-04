@@ -1,17 +1,18 @@
 import { Router } from "express"
 import cartDao from "../dao/mongoDao/cart.dao.js"
+import {authorization, passportCall} from "../middlewares/passport.middleware.js"
 
 const router = Router()
 
 // Configuración de solicitudes / peticiones
 
-router.post("/", create)
-router.get("/:cid", readOne) 
-router.post("/:cid/product/:pid", newProductToCart)
-router.delete ("/:cid/product/:pid", destroy)
-router.put ("/:cid", updateOne)
-router.put ("/:cid/product/:pid", updateProductQuantityInCart)
-router.delete("/:cid", deleteAllProductsFromCart)
+router.post("/", authorization("user"), create) // Para crear un carrito tiene que tener nivel de usuario porque son ellos los que van a crearlos
+router.get("/:cid", passportCall("jwt"), authorization("user"), readOne) // Para las demás funciones asociadas al carrito, el usuario debe estar logueado, por eso pasamos la passportCall. 
+router.post("/:cid/product/:pid", passportCall("jwt"), authorization("user"), newProductToCart) 
+router.delete ("/:cid/product/:pid", passportCall("jwt"), authorization("user"), destroy)
+router.put ("/:cid", passportCall("jwt"), authorization("user"), updateOne)
+router.put ("/:cid/product/:pid", passportCall("jwt"), authorization("user"), updateProductQuantityInCart)
+router.delete("/:cid", passportCall("jwt"), authorization("user"), deleteAllProductsFromCart)
 
 // POST: Callback create (para crear un nuevo carrito)
 

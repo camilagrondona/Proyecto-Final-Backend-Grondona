@@ -1,6 +1,7 @@
 import passport from "passport"
 import local from "passport-local"
 import google from "passport-google-oauth20"
+import jwt from "passport-jwt"
 import { createHash, isValidPassword } from "../utils/hashPassword.js"
 import userDao from "../dao/mongoDao/user.dao.js"
 
@@ -14,6 +15,22 @@ const LocalStrategy = local.Strategy
 
 const GoogleStrategy = google.Strategy
 
+// Inicialización estrategia de Json web token
+
+const JWTStrategy = jwt.Strategy
+
+const ExtractJWT = jwt.ExtractJwt // Extractor de información (token) (requests: se pueden obtener mediante req params, cookies, headers, body)
+
+// Función para extraer información de la cookie
+
+const cookieExtractor = (req) => {
+    let token = null
+    if (req && req.cookies) { // chequeamos si existe una request y una request.cookie
+        token = req.cookies.token // extraemos el token de la cookie y lo asignamos a la variable token
+    }
+    return token
+}
+
 // Estrategia local 
 
 // Función que inicializa las estrategias que configuremos
@@ -25,7 +42,7 @@ const initializePassport = () => {
             { passReqToCallback: true, usernameField: "email" },
             async (req, username, password, done) => {
                 try {
-                    const { first_name, last_name, email, age } = req.body // Recibimos por el cuerpo del body los datos de usuario y desestructuramos la información que realmente necesitamos que llegue a la base de datos. ACÁ NO INCLUIMOS EL PASSWORD PORQUE YA LO ESTAMOS RECIBIENDO EN PASSPORT. 
+                    const { first_name, last_name, email, age, role } = req.body // Recibimos por el cuerpo del body los datos de usuario y desestructuramos la información que realmente necesitamos que llegue a la base de datos. ACÁ NO INCLUIMOS EL PASSWORD PORQUE YA LO ESTAMOS RECIBIENDO EN PASSPORT. 
                     const user = await userDao.getByEmail(username) // username equivale al email
                     if (user) return done(null, false, { message: "El usuario ya existe" }) // si el usuario ya existe, devuelve un error y no lo duplica. El null indica que no hay error, ya que el primer parámetro que pide el done es el error. El false indica que no se le va a pasar ningún usuario porque no se va a registrar. 
 
@@ -36,7 +53,8 @@ const initializePassport = () => {
                         last_name,
                         email,
                         password: createHash(password), // le paso el password que estamos recibiendo y lo guarda haseado
-                        age
+                        age,
+                        role
                     }
 
                     const createUser = await userDao.create(newUser) // creamos el nuevo usuario con userDao
@@ -101,6 +119,23 @@ passport.use(
         }
     )
 )
+
+// Estrategia de JWT 
+
+passport.use("jwt", new JWTStrategy(
+    {
+    jwtFromRequest: ExtractJWT.fromExtractors([cookieExtractor]), // Extraer la información que necesita de la request / token y pasamos por parametro la funcion cookieExtractor
+    secretOrKey: "codigoSecreto" // tiene que coincidir con el codigo secreto que hemos configurado en jwt.js
+    },
+    async (jwt_payload, done) => {
+        try {
+            return done(null, jwt_payload) // en el payload tenemos el token
+        } catch (error) {
+            return done(error)
+        }
+    }
+)) // 1er parámetro: nombre de la estrategia / 2do parámetro: configuración de la instancia de nuestra estrategia
+
 // -----------------------------------------------------------------------//
 
     // Serialización y deserialización de usuarios

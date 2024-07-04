@@ -8,7 +8,7 @@ const router = Router()
 
 // Indexamos nuestros endpoints
 
-router.use("/products", isLogin, productsRouters) //  Chequea si el usuario está logueado en todos los endpoint de productos, y ahí nos devuelve la consulta (con el middleware isLogin)
+router.use("/products", productsRouters) 
 router.use("/carts", cartsRouters)
 router.use("/session", sessionRouters)
 

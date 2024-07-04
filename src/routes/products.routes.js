@@ -1,15 +1,17 @@
 import { Router } from "express"
 import productDao from "../dao/mongoDao/product.dao.js"
+import { authorization, passportCall } from "../middlewares/passport.middleware.js"
+import { productDataValidator } from "../validators/productData.validator.js"
 
 const router = Router()
 
 // Configuración de solicitudes / peticiones
 
-router.post("/", create)
+router.post("/", passportCall("jwt"), authorization("admin"), productDataValidator, create) // solo un usuario con rol de administrador puede crear un producto
 router.get("/", read) 
 router.get("/:pid", readOne) 
-router.put("/:pid", update)
-router.delete("/:pid", destroy)
+router.put("/:pid", passportCall("jwt"), authorization("admin"), update)
+router.delete("/:pid", passportCall("jwt"), authorization("admin"), destroy)
 
 // POST: Callback create (para crear un nuevo producto)
 

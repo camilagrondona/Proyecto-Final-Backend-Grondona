@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const urlDb = "mongodb+srv://grondonacamila:4XIAX0e0VL2jCG1O@e-commerce.na6kuai.mongodb.net/ecommerce" // Después del net podemos poner el nombre de la base de datos que queremos, sino se crea por defecto "test"
+const urlDb = "" // Después del net podemos poner el nombre de la base de datos que queremos, sino se crea por defecto "test"
 
 // Función que hace la conexión con la base de datos
 

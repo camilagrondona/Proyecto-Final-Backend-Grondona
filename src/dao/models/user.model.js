@@ -10,7 +10,12 @@ const userSchema = new mongoose.Schema({
         unique: true
     },
     password: String,
-    age: Number
+    age: Number,
+    role: {
+        type: String,
+        enum: ["user", "admin"], // enumera los roles de usuario que podemos tener
+        default: "user" // Por defecto el rol es usuario
+    }
 })
 
 // Modelo de user
