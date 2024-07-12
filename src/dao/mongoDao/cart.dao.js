@@ -11,6 +11,10 @@ const create = async (data) => {
     return cart
 }
 
+const update = async (query, data) => {
+    return await cartModel.findOneAndUpdate(query, data, {new: true}) // La propiedad new true nos devuelve la info actualizada
+}
+
 const addProductToCart = async (cid, pid) => {
     const product = await productModel.findById(pid) // Buscamos el producto por productModel
     if (!product) return { product: false } // Manejo del error (devolvemos un objeto que especifica que no está encontrando el id del producto)
@@ -40,25 +44,6 @@ const deleteProductInCart = async (cid, pid) => {
 
     return cartUpdated // Y acá lo retornamos 
 
-}
-
-/* Explicación {$inc: {"products.$.product": -1}}:
-
-1) $inc: Este es el operador de incremento. Se utiliza para incrementar el valor de un campo numérico en la cantidad especificada.
-
-2) "products.$.quantity": 
-products: es el nombre del array 
-
-$:  es el operador de posición. Representa el primer elemento del array que coincide con la condición especificada en el filtro de la consulta. Básicamente, este operador selecciona el elemento correcto del array para la actualización.
-
-quantity: es el campo del objeto dentro del array products cuyo valor queremos incrementar.
-*/
-
-const update = async (cid, data) => {
-    await cartModel.updateOne({ _id: cid }, { $set: { products: [] } }) // Primero buscamos el carrito por su ID, y seteamos la información de productos y le asignamos un array vacío
-    await cartModel.updateOne({ _id: cid }, { $set: { products: data } }) // luego lo vamos a actualizar con la data (nuevo array de productos que va a recibir)
-    const cart = await cartModel.findById(cid) // Traemos el carrito buscándolo por su ID
-    return cart // retornamos el carrito con la información actualizada
 }
 
 const updateQuantityProductInCart = async (cid, pid, quantity) => {

@@ -4,6 +4,7 @@ import google from "passport-google-oauth20"
 import jwt from "passport-jwt"
 import { createHash, isValidPassword } from "../utils/hashPassword.js"
 import userDao from "../dao/mongoDao/user.dao.js"
+import envs from "./env.config.js"
 
 // Métodos de autenticación (estrategias)
 
@@ -97,8 +98,8 @@ passport.use(
     "google",
     new GoogleStrategy(
         {
-            clientID: "", 
-            clientSecret: "",
+            clientID: envs.GOOGLE_CLIENT_ID, 
+            clientSecret: envs.GOOGLE_CLIENT_SECRET,
             callbackURL: "http://localhost:3000/api/session/google" // Endpoint al que se va a comunicar la estrategia 
         },
         async (accessToken, refreshToken, profile, cb) => { // cb es un callback equivalente al done
@@ -125,7 +126,7 @@ passport.use(
 passport.use("jwt", new JWTStrategy(
     {
     jwtFromRequest: ExtractJWT.fromExtractors([cookieExtractor]), // Extraer la información que necesita de la request / token y pasamos por parametro la funcion cookieExtractor
-    secretOrKey: "codigoSecreto" // tiene que coincidir con el codigo secreto que hemos configurado en jwt.js
+    secretOrKey: envs.SECRET_CODE // tiene que coincidir con el codigo secreto que hemos configurado en jwt.js
     },
     async (jwt_payload, done) => {
         try {

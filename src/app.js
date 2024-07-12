@@ -6,6 +6,7 @@ import MongoStore from "connect-mongo"
 import passport from "passport"
 import initializePassport from "./config/passport.config.js"
 import cookieParser from "cookie-parser"
+import envs from "./config/env.config.js"
 
 // Conexión con MongoDB
 
@@ -19,16 +20,16 @@ const app = express()
 
 app.use(express.json()) // Para manejar json
 app.use(express.urlencoded({ extended: true })) // Para leer querys y params
-app.use(cookieParser("secret")) // Cookie parser - Pide un código secreto para tener cookies cifradas, por eso le pasamos secret
+app.use(cookieParser(envs.SECRET_CODE)) // Cookie parser - Pide un código secreto para tener cookies cifradas 
 
 // Configuración de Mongo (para trabajar con las session)
 
 app.use(session({
     store: MongoStore.create({
-        mongoUrl: "",
+        mongoUrl: envs.MONGO_URL,
         ttl: 15 // tiempo de sesión 15 min
     }),
-    secret: "CodigoSecreto",
+    secret: envs.SECRET_CODE,
     resave: true,
     saveUninitialized: true
 }))
@@ -50,13 +51,9 @@ app.use("/api", router)
 
 // 1) El puerto donde se inicializa el servidor
 
-const port = 3000
+// 2) Console log para que cuando el servidor esté inicializado nos muestre en consola el siguiente mensaje: 
 
-// 2) Función ready, para que cuando el servidor esté inicializado nos muestre en consola el siguiente mensaje: 
-
-const ready = console.log("Server ready on port " + port)
-
-// Para inicializar el servidor, necesito escuchar el puerto 8080 y luego de que se levantó ejecutar la callback ready 
-
-app.listen(port, ready) // Está inicializado pero aún no está funcionando; para ello, hay que correr en la consola el comando "npm run dev"
+app.listen(envs.PORT, () => {
+    console.log(`Server ready on port ${envs.PORT}`)
+}) // Está inicializado pero aún no está funcionando; para ello, hay que correr en la consola el comando "npm run dev"
 
