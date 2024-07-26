@@ -1,20 +1,19 @@
 import { Router } from "express"
 import productsController from "../controllers/products.controller.js"
 import { authorization, passportCall } from "../middlewares/passport.middleware.js"
-import { productDataValidator } from "../validators/productData.validator.js"
 
 const router = Router()
 
 // Configuración de solicitudes / peticiones
 
-router.post("/", passportCall("jwt"), authorization("admin"), productDataValidator, productsController.addProduct) // solo un usuario con rol de administrador puede crear un producto
+router.post("/", passportCall("jwt"), authorization("admin"), productsController.create) // solo un usuario con rol de administrador puede crear un producto
 
-router.get("/", productsController.getAllProducts) 
+router.get("/", productsController.getAll) 
 
-router.get("/:pid", productsController.getProductById) 
+router.get("/:pid", productsController.getById) 
 
-router.put("/:pid", passportCall("jwt"), authorization("admin"), productsController.updateProduct)
+router.put("/:pid", passportCall("jwt"), authorization("admin"), productsController.update)
 
-router.delete("/:pid", passportCall("jwt"), authorization("admin"), productsController.deleteProduct)
+router.delete("/:pid", passportCall("jwt"), authorization("admin"), productsController.deleteOne)
 
 export default router

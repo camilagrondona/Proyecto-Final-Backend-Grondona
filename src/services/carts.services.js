@@ -1,64 +1,49 @@
-import cartDao from "../dao/mongoDao/cart.dao.js"
-import productDao from "../dao/mongoDao/product.dao.js"
+import cartsRepository from "../persistences/mongo/repositories/carts.repository.js"
+import productsRepository from "../persistences/mongo/repositories/products.repository.js"
 
 const createCart = async () => {
-    return await cartDao.create()
+    return await cartsRepository.create()
 }
 
 const addProductToCart = async (cid, pid) => {
-    await checkProductAndCart(cid, pid) // No tiene retorno porque ya de por sí la función tiene su retorno, entonces no es necesario 
-
-    const productInCart = await cartDao.update({ _id: cid, "products.product": pid }, { $inc: { "products.$.quantity": 1 } })// Busca primero el id del carrito y dentro del array de productos del carrito busca el pid que tengamos insertado y le aumentamos la cantidad en uno. 
-
-    if (!productInCart) {
-        await cartDao.update({ _id: cid }, { $push: { products: { product: pid, quantity: 1 } } })
-    } // Si no encuentra el producto en el carrito, ejecutamos un await y le pasamos el cart id y aumentamos el valor del producto en 1 (lo "pusheamos", lo agregamos por primera vez)
-    return productInCart
+    return await cartsRepository.addProductToCart(cid, pid)
+    /*Opción 2: 
+        const cart = await cartsRepository.addProductToCart(cid, pid)
+        return cart */
 }
 
-/* Explicación {$inc: {"products.$.product": -1}}:
-
-1) $inc: Este es el operador de incremento. Se utiliza para incrementar el valor de un campo numérico en la cantidad especificada.
-
-2) "products.$.quantity": 
-products: es el nombre del array 
-
-$:  es el operador de posición. Representa el primer elemento del array que coincide con la condición especificada en el filtro de la consulta. Básicamente, este operador selecciona el elemento correcto del array para la actualización.
-
-quantity: es el campo del objeto dentro del array products cuyo valor queremos incrementar.
-*/
-
 const updateQuantityProductInCart = async (cid, pid, quantity) => {
-    await checkProductAndCart(cid, pid)
-
-    return await cartDao.update({ _id: cid, "products.product": pid }, { $set: { "products.$.quantity": quantity } }) // Busca primero el id del carrito y dentro del array de productos del carrito busca el pid que tengamos insertado. Seteamos la cantidad para que la reemplace por la quantity que se recibe en el body.
+    return await cartsRepository.updateQuantityProductInCart(cid, pid, quantity)
 }
 
 const deleteProductInCart = async (cid, pid) => {
-    await checkProductAndCart(cid, pid)
-
-    return await cartDao.update({ _id: cid, "products.product": pid }, { $inc: { "products.$.quantity": -1 } })// Busca primero el id del carrito y dentro del array de productos del carrito busca el pid que tengamos insertado y le disminuimos la cantidad en uno. 
+    return await cartsRepository.deleteProductInCart(cid, pid)
 }
 
 const getCartById = async (id) => {
-    return await cartDao.getById(id)
-}
-
-const updateCart = async (query, data) => {
-    return await cartDao.update(query, data)
+    return await cartsRepository.getById(id)
 }
 
 const deleteAllProductsInCart = async (cid) => {
-    return await cartDao.update({_id: cid}, {$set: {product: []}})
-} // buscamos por id el carrito y lo actualizamos vaciando el array de productos
+    return await cartsRepository.deleteAllProductsInCart(cid)
+}
 
-// No la exportamos porque es para reutilizar código dentro de nuestro servicio, para poder hacer la verificación sin repetir código. 
-
-const checkProductAndCart = async (cid, pid) => {
-    const product = await productDao.getById(pid) // Verificamos si existe el producto
-    if (!product) return { product: false } // Manejo del error (devolvemos un objeto que especifica que no está encontrando el id del producto)
-    const cart = await cartDao.getById(cid) // Verificamos si existe el carrito
-    if (!cart) return { cart: false } // Manejo del error (devolvemos un objeto que especifica que no está encontrando el id del carrito)
+const purchaseCart = async (cid) => {
+    const cart = await cartsRepository.getById(cid)
+    // Chequeamos cuáles son los productos que quedan en el carrito (sin stock suficiente)
+    let total = 0 // total de productos en el carrito
+    const products = [] // Acá colocamos los productos que no van a entrar en la compra para actualizar el carrito
+    for (const product of cart.products) { // Se usa el for of y no el for each porque hay asincronismo y el forEach no respeta el tiempo de espera de los await 
+        const prod = await productsRepository.getById(product.product) // La propiedad product es el id del producto que hemos almacenado
+        if (prod.stock >= product.quantity) {
+            total += prod.price * product.quantity
+        }// acá la propiedad product hace referencia a cada producto del array. Si el stock de mi producto es igual o mayor a la cantidad de producto que tengo en mi carrito, se suma al total del carrito (el total que arranca en 0 arriba)
+        else {
+            products.push(product) // Si no tienen suficiente stock, se suman al array de productos del principio que empieza vacío 
+        }
+        await cartsRepository.updateCart(cid, products)// Actualizamos los productos que van a quedar en el carrito
+    }
+    return total
 }
 
 export default {
@@ -67,6 +52,6 @@ export default {
     updateQuantityProductInCart,
     deleteProductInCart,
     getCartById,
-    updateCart,
-    deleteAllProductsInCart
+    deleteAllProductsInCart,
+    purchaseCart
 }

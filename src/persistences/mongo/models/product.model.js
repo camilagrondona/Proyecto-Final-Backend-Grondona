@@ -6,15 +6,15 @@ const productCollection = "products" // Nombre de la colección de productos
 const productSchema = new mongoose.Schema({
     title: {
         type: String,
-        require: true
+        required: true
     },
     description: {
         type: String,
-        require: true
+        required: true
     },
     price: {
         type: Number,
-        require: true
+        required: true
     },
     thumbnail: {
         type: Array,
@@ -22,11 +22,11 @@ const productSchema = new mongoose.Schema({
     },
     code: {
         type: String,
-        require: true
+        required: true
     },
     stock: {
         type: Number,
-        require: true
+        required: true
     },
     status: {
         type: Boolean,
@@ -34,7 +34,7 @@ const productSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        require: true
+        required: true
     }
 })
 

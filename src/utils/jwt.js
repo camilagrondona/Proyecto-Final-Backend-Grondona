@@ -4,8 +4,8 @@ import envs from "../config/env.config.js"
 // Función que crea el token 
 
 export const createToken = (user) => {
-    const { _id, email, role } = user // Desestructuramos el id y el email del usuario, que son los que vamos a cifrar en el token
-    const token = jwt.sign({ _id, email, role }, envs.SECRET_CODE, { expiresIn: "1m" }) // 1er parametro: datos del usuario que vamos a cifrar / 2do parámetro: código secreto / 3er parámetro: tiempo de expiración 
+    const { _id, email, role, cart } = user // Desestructuramos el id y el email del usuario, que son los que vamos a cifrar en el token. Agregamos el cart para que cuando haga login también obtengamos la información del carrito que corresponde a dicho usuario. 
+    const token = jwt.sign({ _id, email, role, cart}, envs.SECRET_CODE, { expiresIn: "5m" }) // 1er parametro: datos del usuario que vamos a cifrar / 2do parámetro: código secreto / 3er parámetro: tiempo de expiración 
     return token
 }
 

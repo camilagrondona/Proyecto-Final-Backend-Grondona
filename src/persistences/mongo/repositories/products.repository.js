@@ -1,23 +1,21 @@
-import {productModel} from "../models/product.model.js"
-
-const getAll = async (query, options) => {
-    const products = await productModel.paginate(query, options)
-    return products // retorna los productos encontrados
-}
-
-const getById = async (id) => {
-    const product = await productModel.findById(id) // busca el producto por su id
-    return product 
-}
+import { productModel } from "../models/product.model.js"
 
 const create = async (data) => {
     const product = await productModel.create(data) // data recibida del producto nuevo
     return product
 }
 
+const getAll = async (query, options) => {
+    const products = await productModel.paginate(query, options)
+    return products // retorna los productos encontrados
+}
+const getById = async (id) => {
+    const product = await productModel.findById(id) // busca el producto por su id
+    return product 
+}
+
 const update = async (id, data) => {
-    await productModel.findByIdAndUpdate(id, data) // no almacenamos en una variable la data porque cuando usamos la función no devuelve la información actualizada. Por eso primero la buscamos y después la devolvemos actualizada.
-    const product = await productModel.findById(id) // buscamos ahora el producto actualizado
+    const product = await productModel.findByIdAndUpdate(id, data, {new: true}) // la propiedad new true nos devuelve el producto actualizado 
     return product // lo devolvemos
 }
 
@@ -28,9 +26,9 @@ const deleteOne = async (id) => {
 }
 
 export default {
+    create,
     getAll,
     getById,
-    create,
     update,
     deleteOne
 }

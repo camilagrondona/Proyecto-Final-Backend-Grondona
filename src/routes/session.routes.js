@@ -1,28 +1,43 @@
 import { Router } from "express"
 import passport from "passport"
-import userControllers from "../controllers/users.controller.js"
+import sessionControllers from "../controllers/sessions.controller.js"
 import { authorization, passportCall } from "../middlewares/passport.middleware.js"
-import { userLoginValidator } from "../validators/userLogin.validator.js"
+import { sendMail } from "../utils/sendMails.js"
+import { sendSMS } from "../utils/sendSMS.js"
 
 const router = Router()
 
-router.post("/register", passportCall("register"), userControllers.registerUser)
+router.post("/register", passportCall("register"), sessionControllers.register)
 
-router.post("/login", passport.authenticate("login"), userControllers.loginUserLocal)
+router.post("/login", passportCall ("login"), sessionControllers.login)
 
-router.post("/jwt", userLoginValidator, userControllers.loginJWT) // Json web token
-
-router.get("/current", passportCall("jwt"), authorization("user"), userControllers.tokenVerification) // Verificación del token
+router.get("/current", passportCall("jwt"), authorization("user"), sessionControllers.current) // Verificación del token
 
 router.get("/google", passport.authenticate("google", {
     scope: ["https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile"], // Le indicamos los endpoint de donde va a sacar la info  
     session: false
-}), userControllers.googleLogin) // Login de passport con google 
+}), sessionControllers.loginGoogle) // Login de passport con google 
 
-router.get("/logout", userControllers.userLogout)
+router.get("/logout", sessionControllers.logout)
 
-// passport.authenticate - Es un middleware por el que tiene que pasar nuestra autenticación antes de continuar con la ejecución de la función
+router.get("/email", async (req, res) => {
+    const {name} = req.body // Desestructuramos el nombre del body para utilizarlo en la plantilla
 
-// Después del passport.authenticate le pasamos el nombre de la estrategia de autenticación que vamos a utilizar en ese endpoint
+    const template = 
+    `<div> 
+    <h1> Bienvenida ${name} a mi app </h1>
+    <img src="cid:perrito"/> 
+    </div>`
+
+    await sendMail("ornella.grondona@gmail.com", "Test nodemailer", "Este es un mensaje de prueba", template)
+
+    return res.status(200).json({status:"Success", message: "Email enviado"})
+})
+
+router.get("/sms", async (req, res) => {
+    await sendSMS("+18777804236", "Coder es lo más!!")
+    return res.status(200).json({status:"Success", message: "SMS enviado"})
+})
 
 export default router
+
