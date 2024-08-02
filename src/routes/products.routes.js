@@ -10,6 +10,8 @@ router.post("/", passportCall("jwt"), authorization("admin"), productsController
 
 router.get("/", productsController.getAll) 
 
+router.get("/mockingproducts", productsController.createProductsMocks) 
+
 router.get("/:pid", productsController.getById) 
 
 router.put("/:pid", passportCall("jwt"), authorization("admin"), productsController.update)

@@ -1,3 +1,4 @@
+import { generateProductsMocks } from "../mocks/products.mock.js"
 import productsServices from "../services/products.services.js"
 
 const create = async (req, res) => {
@@ -42,16 +43,15 @@ const getAll = async (req, res) => {
     }
 }
 
-const getById = async (req, res) => {
+const getById = async (req, res, next) => {
     try {
         const { pid } = req.params
-        const one = await productsServices.getById(pid)
-        if (!one) return res.status(404).json({ status: "Error", message: "Not found" })
+        const product = await productsServices.getById(pid)
 
-        return res.status(200).json({ status: "Success", payload: one }) // Express por defecto manda un status 200, así que en caso de no especificarlo no afectaría 
+        return res.status(200).json({ status: "Success", payload: product }) // Express por defecto manda un status 200, así que en caso de no especificarlo no afectaría 
     } catch (error) {
         console.log(error)
-        return res.json({ status: error.status || 500, response: error.message || "Error" })
+        next(error) // Cuando detecta el error, se ejecuta el middleware errorHandle, lo hace por debajo express cuando le pasamos el next y el error
     }
 }
 
@@ -83,10 +83,16 @@ try {
 }
 }
 
+const createProductsMocks = async (req, res) => {
+    const products = generateProductsMocks(100)
+    return res.status(200).json({status:"Success", products})
+}
+
 export default {
     create,
     getAll,
     getById,
     update,
-    deleteOne
+    deleteOne,
+    createProductsMocks
 }

@@ -7,6 +7,7 @@ import passport from "passport"
 import initializePassport from "./config/passport.config.js"
 import cookieParser from "cookie-parser"
 import envs from "./config/env.config.js"
+import { errorHandle } from "./errors/errorHandle.js"
 
 // Conexión con MongoDB
 
@@ -46,6 +47,8 @@ initializePassport()
 // Agregamos el prefijo api a nuestras rutas
 
 app.use("/api", router) 
+
+app.use(errorHandle) // Cuando express detecte el error, va a ejecutar automáticamente esta función (que actúa como middleware)
 
 // Inicializamos la app de express configurando: 
 
