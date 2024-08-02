@@ -21,11 +21,13 @@ const getById = async (id) => {
 
 const update = async (id, data) => {
     const product = await productsRepository.update(id, data)
+    if (!product) throw error.notFoundError(`Product id ${id} not found`)
     return product
 }
 
 const deleteOne = async (id) => {
     const product = await productsRepository.deleteOne(id)
+    if (!product) throw error.notFoundError(`Product id ${id} not found`)
     return product
 }
 
