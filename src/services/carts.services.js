@@ -21,16 +21,21 @@ const deleteProductInCart = async (cid, pid) => {
 }
 
 const getCartById = async (id) => {
-    return await cartsRepository.getById(id)
+    const cart = await cartsRepository.getById(id)
+    if (!cart) throw error.notFoundError(`Cart id ${id} not found`)
+    return cart
 }
 
 const deleteAllProductsInCart = async (cid) => {
-    return await cartsRepository.deleteAllProductsInCart(cid)
+    const cart = await cartsRepository.deleteAllProductsInCart(cid)
+    if (!cart) throw error.notFoundError(`Cart id ${id} not found`)
+    return cart
 }
 
 const purchaseCart = async (cid) => {
     const cart = await cartsRepository.getById(cid)
     // Chequeamos cuáles son los productos que quedan en el carrito (sin stock suficiente)
+    if (!cart) throw error.notFoundError(`Cart id ${id} not found`)
     let total = 0 // total de productos en el carrito
     const products = [] // Acá colocamos los productos que no van a entrar en la compra para actualizar el carrito
     for (const product of cart.products) { // Se usa el for of y no el for each porque hay asincronismo y el forEach no respeta el tiempo de espera de los await 

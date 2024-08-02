@@ -3,16 +3,16 @@ import { createToken } from "../utils/jwt.js"
 
 // En este controller no hay ningún llamado a la base de datos, ya que esta conexión se hace en passport config (estrategias de autenticación y registro). Por eso no hace falta tampoco tener servicios. En caso de que el passport creciera mucho, se puede desarrollar la lógica de las estrategias en un servicio. 
 
-const register = async (req, res) => {
+const register = async (req, res, next) => {
     try {
         res.status(201).json({ status: "success", message: "Usuario creado con éxito" })
     } catch (error) {
         console.log(error)
-        res.status(500).json({ status: "Error", message: "Internal Server Error" })
+        next(error)
     }
 }
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
     try {
         const user = req.user
         const token = createToken(user) // Creamos el token
@@ -21,36 +21,36 @@ const login = async (req, res) => {
         return res.status(200).json({ status: "success", payload: userDto, token })
     } catch (error) {
         console.log(error)
-        res.status(500).json({ status: "Error", message: "Internal Server Error" })
+        next(error)
     }
 }
 
-const current = async (req, res) => {
+const current = async (req, res, next) => {
     try {
         const user = userResponseDto(req.user) // El DTO filtra la info del usuario
         return res.status(200).json({ status: "Success", payload: user }) // Si pasa las verificaciones nos devuelve los datos del usuario filtrado por el DTO
     } catch (error) {
         console.log(error)
-        res.status(500).json({ status: "Error", message: "Internal Server Error" })
+        next(error)
     }
 }
 
-const loginGoogle = (req, res) => {
+const loginGoogle = (req, res, next) => {
     try {
         return res.status(200).json({ status: "success", payload: req.user }) // En caso de pasar la verificación, devolvemos la info que tenemos del token
     } catch (error) {
         console.log(error)
-        res.status(500).json({ status: "Error", message: "Internal Server Error" })
+        next(error)
     }
 }
 
-const logout = async (req, res) => {
+const logout = async (req, res, next) => {
     try {
         req.session.destroy() // Cerrar la sesión 
         res.status(200).json({ status: "Success", message: "Sesión cerrada con éxito" })
     } catch (error) {
         console.log(error)
-        res.status(500).json({ status: "Error", message: "Internal Server Error" })
+        next(error)
     }
 }
 
