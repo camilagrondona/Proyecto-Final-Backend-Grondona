@@ -7,8 +7,8 @@ export const checkProductAndCart = async (req = request, res = response, next) =
     const product = await productsServices.getById(pid)
     const cart = await cartsServices.getCartById(cid)
 
-    if (!product) return res.status(404).json ({status: "Error", message: `No se encontró el producto con el id ${pid}`}) // Manejo del error del producto
-    if (!cart) return res.status(404).json ({status: "Error", message: `No se encontró el carrito con el id ${cid}`}) // Manejo del error del carrito
+    if (!product) throw error.notFoundError(`Product id ${pid} not found`) // Manejo del error del producto
+    if (!cart) throw error.notFoundError(`Cart id ${cid} not found`) // Manejo del error del carrito
 
     next() // Si pasa las verificaciones, continúa la función
 }
