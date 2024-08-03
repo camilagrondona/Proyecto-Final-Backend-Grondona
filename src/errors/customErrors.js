@@ -1,4 +1,4 @@
-const notFoundError = (message = "Not Found") => { // si la función no recibe un mensaje por parámetro, por defecto devuelve not found
+const notFoundError = (message = "Not found") => {
     const error = new Error(message)
     error.status = 404
     return error

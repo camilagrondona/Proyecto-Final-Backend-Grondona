@@ -1,5 +1,6 @@
 import cartsRepository from "../persistences/mongo/repositories/carts.repository.js"
 import productsRepository from "../persistences/mongo/repositories/products.repository.js"
+import error from "../errors/customErrors.js"
 
 const createCart = async () => {
     return await cartsRepository.create()
