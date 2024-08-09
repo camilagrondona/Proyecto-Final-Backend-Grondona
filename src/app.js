@@ -8,6 +8,7 @@ import initializePassport from "./config/passport.config.js"
 import cookieParser from "cookie-parser"
 import envs from "./config/env.config.js"
 import { errorHandle } from "./errors/errorHandle.js"
+import { logger } from "./utils/logger.js"
 
 // Conexión con MongoDB
 
@@ -57,6 +58,9 @@ app.use(errorHandle) // Cuando express detecte el error, va a ejecutar automáti
 // 2) Console log para que cuando el servidor esté inicializado nos muestre en consola el siguiente mensaje: 
 
 app.listen(envs.PORT, () => {
-    console.log(`Server ready on port ${envs.PORT}`)
+    logger.log("info", `Server ready on port ${envs.PORT}`)
 }) // Está inicializado pero aún no está funcionando; para ello, hay que correr en la consola el comando "npm run dev"
+
+
+
 

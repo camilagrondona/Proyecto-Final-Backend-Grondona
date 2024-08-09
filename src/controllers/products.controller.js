@@ -1,5 +1,6 @@
 import { generateProductsMocks } from "../mocks/products.mock.js"
 import productsServices from "../services/products.services.js"
+import { logger } from "../utils/logger.js"
 
 const create = async (req, res, next) => {
     try {
@@ -7,7 +8,7 @@ const create = async (req, res, next) => {
         const newProduct = await productsServices.create(product)
         return res.status(201).json({ status: "Success", payload: newProduct }) //201 es el estado de creación exitosa
     } catch (error) {
-        console.log(error)
+        logger.log("error", error.message)
         next(error) // Cuando detecta el error, se ejecuta el middleware errorHandle, lo hace por debajo express cuando le pasamos el next y el error
     }
 }
@@ -38,7 +39,7 @@ const getAll = async (req, res, next) => {
 
         return res.status(200).json({ status: "Success", products })
     } catch (error) {
-        console.log(error)
+        logger.log("error", error.message)
         next(error)
     }
 }
@@ -50,7 +51,7 @@ const getById = async (req, res, next) => {
 
         return res.status(200).json({ status: "Success", payload: product }) // Express por defecto manda un status 200, así que en caso de no especificarlo no afectaría 
     } catch (error) {
-        console.log(error)
+        logger.log("error", error.message)
         next(error) 
     }
 }
@@ -64,7 +65,7 @@ const update = async (req, res, next) => {
 
         return res.status(200).json({ status: "Success", payload: updatedProduct }) //enviamos la respuesta al cliente con el objeto actualizado
     } catch (error) {
-        console.log(error)
+        logger.log("error", error.message)
         next(error)
     }
 }
@@ -76,7 +77,7 @@ try {
 
     return res.status(200).json({ status: "Success", payload: "Producto eliminado" })
 } catch (error) {
-    console.log(error)
+    logger.log("error", error.message)
     next(error)
 }
 }

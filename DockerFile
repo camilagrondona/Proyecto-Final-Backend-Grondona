@@ -1,0 +1,27 @@
+# Definimos una imagen base de node y su versión para nuestro contenedor
+
+FROM node:20.16.0
+
+# Definimos el directorio de trabajo dentro del contenedor 
+
+WORKDIR /app
+
+# Copiamos el archivo package.json a la carpeta de trabajo (app)
+
+COPY package.json .
+
+# Instalamos las dependencias del proyecto
+
+RUN npm install
+
+# Copiamos el resto de los archivos a la carpeta de trabajo (el punto es para indicar que copie todo)
+
+COPY . .
+
+# Exponemos el puerto de trabajo
+
+EXPOSE 3000
+
+# Definimos el comando para correr nuestra app (no ponemos npm run dev porque no lo corremos con nodemon, ya que está instalado en nuestras dev dependencies, entonces no se instalan en el servidor)
+
+CMD [ "npm", "start" ]

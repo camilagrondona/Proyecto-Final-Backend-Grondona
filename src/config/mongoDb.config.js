@@ -1,5 +1,6 @@
 import mongoose from "mongoose"
 import envs from "./env.config.js"
+import { logger } from "../utils/logger.js"
 
 // Función que hace la conexión con la base de datos
 
@@ -8,7 +9,8 @@ export const connectMongoDB = async () => {
     try {
 // Conexión con la base de datos
         mongoose.connect(envs.MONGO_URL) 
-        console.log("Mongo DB connected")
+        // console.log("Mongo DB connected")
+        logger.info("Mongo DB connected")
     } catch (error) {
         console.log(error)
     }

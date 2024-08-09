@@ -21,3 +21,4 @@ export const authorization = (role) => {
         next() // Si no hay ningún problema, continúa la función
     }
 }
+
