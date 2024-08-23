@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     age: Number,
     role: {
         type: String,
-        enum: ["user", "admin"], // enumera los roles de usuario que podemos tener
+        enum: ["user", "admin", "premium"], // enumera los roles de usuario que podemos tener
         default: "user" // Por defecto el rol es usuario
     },
     cart: {type: mongoose.Schema.Types.ObjectId, ref: "carts"} // Asociamos un carrito específico a cada usuario

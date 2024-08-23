@@ -5,7 +5,7 @@ import { logger } from "../utils/logger.js"
 const create = async (req, res, next) => {
     try {
         const product = req.body // capturamos los datos en la constante product y con el método create creamos un nuevo producto 
-        const newProduct = await productsServices.create(product)
+        const newProduct = await productsServices.create(product, req.user)
         return res.status(201).json({ status: "Success", payload: newProduct }) //201 es el estado de creación exitosa
     } catch (error) {
         logger.log("error", error.message)
@@ -73,7 +73,7 @@ const update = async (req, res, next) => {
 const deleteOne = async (req, res, next) => {
 try {
     const { pid } = req.params // capturamos el id
-    await productsServices.deleteOne(pid) // eliminamos el recurso 
+    await productsServices.deleteOne(pid, req.user) // eliminamos el recurso 
 
     return res.status(200).json({ status: "Success", payload: "Producto eliminado" })
 } catch (error) {

@@ -15,7 +15,7 @@ const createCart = async (req, res, next) => {
 const addProductToCart = async (req, res, next) => {
     try {
         const { cid, pid } = req.params // se reciben por parámetro el cart ID y el product ID
-        const cart = await cartsServices.addProductToCart(cid, pid)
+        const cart = await cartsServices.addProductToCart(cid, pid, req.user)
         return res.status(200).json({ status: "Success", payload: cart })
     } catch (error) {
         logger.log("error", error.message)

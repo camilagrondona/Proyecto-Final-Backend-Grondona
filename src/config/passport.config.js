@@ -88,7 +88,7 @@ passport.use(
     new LocalStrategy({usernameField: "email"}, async (username, password, done) => {
         try {
             const user = await userRepository.getByEmail(username)
-            if(!user || !isValidPassword(user, password)) return done(null, false,{message: "Usuario o contraseña inválidos" }) // Si no hay un usuario logueado o si no coincide la contraseña no se avanza con el logueo (false), es decir, no serializa ningún usuario. 
+            if(!user || !isValidPassword(user, password)) return done(null, false,{message: "Invalid username or password" }) // Si no hay un usuario logueado o si no coincide la contraseña no se avanza con el logueo (false), es decir, no serializa ningún usuario. 
             return done(null, user) // En caso de que los datos del usuario sean correctos, retornamos el user que va a deserializar 
         } catch (error) {
             done(error)

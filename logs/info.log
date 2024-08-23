@@ -219,3 +219,363 @@
 2024-08-09 15:24:2451 info: Server ready on port 3000
 2024-08-09 15:25:2546 info: Mongo DB connected
 2024-08-09 15:25:2546 info: Server ready on port 3000
+2024-08-22 19:49:4916 info: Mongo DB connected
+2024-08-22 19:49:4916 info: Server ready on port 3000
+2024-08-23 11:01:147 info: Mongo DB connected
+2024-08-23 11:01:147 info: Server ready on port 3000
+2024-08-23 11:02:217 info: Mongo DB connected
+2024-08-23 11:02:217 info: Server ready on port 3000
+2024-08-23 11:02:220 info: Mongo DB connected
+2024-08-23 11:02:220 info: Server ready on port 3000
+2024-08-23 11:02:225 info: Mongo DB connected
+2024-08-23 11:02:225 info: Server ready on port 3000
+2024-08-23 11:05:500 info: Mongo DB connected
+2024-08-23 11:05:500 info: Server ready on port 3000
+2024-08-23 11:06:604 info: Mongo DB connected
+2024-08-23 11:06:604 info: Server ready on port 3000
+2024-08-23 11:06:612 info: Mongo DB connected
+2024-08-23 11:06:612 info: Server ready on port 3000
+2024-08-23 11:06:623 info: Mongo DB connected
+2024-08-23 11:06:623 info: Server ready on port 3000
+2024-08-23 11:06:632 info: Mongo DB connected
+2024-08-23 11:06:632 info: Server ready on port 3000
+2024-08-23 11:06:649 info: Mongo DB connected
+2024-08-23 11:06:649 info: Server ready on port 3000
+2024-08-23 11:06:653 info: Mongo DB connected
+2024-08-23 11:06:653 info: Server ready on port 3000
+2024-08-23 11:07:700 info: Mongo DB connected
+2024-08-23 11:07:700 info: Server ready on port 3000
+2024-08-23 11:07:702 info: Mongo DB connected
+2024-08-23 11:07:702 info: Server ready on port 3000
+2024-08-23 11:07:712 info: Mongo DB connected
+2024-08-23 11:07:712 info: Server ready on port 3000
+2024-08-23 11:07:742 info: Mongo DB connected
+2024-08-23 11:07:742 info: Server ready on port 3000
+2024-08-23 11:07:747 info: Mongo DB connected
+2024-08-23 11:07:747 info: Server ready on port 3000
+2024-08-23 11:07:753 info: Mongo DB connected
+2024-08-23 11:07:753 info: Server ready on port 3000
+2024-08-23 11:08:831 info: Mongo DB connected
+2024-08-23 11:08:831 info: Server ready on port 3000
+2024-08-23 11:08:839 info: Mongo DB connected
+2024-08-23 11:08:839 info: Server ready on port 3000
+2024-08-23 11:08:851 info: Mongo DB connected
+2024-08-23 11:08:851 info: Server ready on port 3000
+2024-08-23 11:09:910 info: Mongo DB connected
+2024-08-23 11:09:910 info: Server ready on port 3000
+2024-08-23 11:09:919 info: Mongo DB connected
+2024-08-23 11:09:919 info: Server ready on port 3000
+2024-08-23 11:12:1230 info: Mongo DB connected
+2024-08-23 11:12:1230 info: Server ready on port 3000
+2024-08-23 11:13:1307 info: Mongo DB connected
+2024-08-23 11:13:1307 info: Server ready on port 3000
+2024-08-23 11:13:1314 info: Mongo DB connected
+2024-08-23 11:13:1314 info: Server ready on port 3000
+2024-08-23 11:13:1325 info: Mongo DB connected
+2024-08-23 11:13:1325 info: Server ready on port 3000
+2024-08-23 11:14:1406 info: Mongo DB connected
+2024-08-23 11:14:1406 info: Server ready on port 3000
+2024-08-23 11:14:1421 info: Mongo DB connected
+2024-08-23 11:14:1421 info: Server ready on port 3000
+2024-08-23 11:14:1426 info: Mongo DB connected
+2024-08-23 11:14:1426 info: Server ready on port 3000
+2024-08-23 11:14:1433 info: Mongo DB connected
+2024-08-23 11:14:1433 info: Server ready on port 3000
+2024-08-23 11:14:1436 info: Mongo DB connected
+2024-08-23 11:14:1436 info: Server ready on port 3000
+2024-08-23 11:14:1438 info: Mongo DB connected
+2024-08-23 11:14:1438 info: Server ready on port 3000
+2024-08-23 11:14:1441 info: Mongo DB connected
+2024-08-23 11:14:1441 info: Server ready on port 3000
+2024-08-23 11:14:1443 info: Mongo DB connected
+2024-08-23 11:14:1443 info: Server ready on port 3000
+2024-08-23 11:14:1449 info: Mongo DB connected
+2024-08-23 11:14:1449 info: Server ready on port 3000
+2024-08-23 11:14:1454 info: Mongo DB connected
+2024-08-23 11:14:1454 info: Server ready on port 3000
+2024-08-23 11:21:2143 error: [POST] /api/user/reset-password - data and hash arguments required
+2024-08-23 11:23:2352 info: Mongo DB connected
+2024-08-23 11:23:2352 info: Server ready on port 3000
+2024-08-23 11:26:2629 info: Mongo DB connected
+2024-08-23 11:26:2629 info: Server ready on port 3000
+2024-08-23 11:26:2630 info: Mongo DB connected
+2024-08-23 11:26:2630 info: Server ready on port 3000
+2024-08-23 11:26:2639 info: Mongo DB connected
+2024-08-23 11:26:2639 info: Server ready on port 3000
+2024-08-23 11:29:2921 info: Mongo DB connected
+2024-08-23 11:29:2921 info: Server ready on port 3000
+2024-08-23 11:29:2945 info: Mongo DB connected
+2024-08-23 11:29:2945 info: Server ready on port 3000
+2024-08-23 11:35:3537 info: Mongo DB connected
+2024-08-23 11:35:3537 info: Server ready on port 3000
+2024-08-23 11:36:3653 info: Mongo DB connected
+2024-08-23 11:36:3653 info: Server ready on port 3000
+2024-08-23 11:36:3658 info: Mongo DB connected
+2024-08-23 11:36:3658 info: Server ready on port 3000
+2024-08-23 11:37:3704 info: Mongo DB connected
+2024-08-23 11:37:3705 info: Mongo DB connected
+2024-08-23 11:37:3705 info: Server ready on port 3000
+2024-08-23 11:37:3713 info: Mongo DB connected
+2024-08-23 11:37:3713 info: Server ready on port 3000
+2024-08-23 11:42:4207 info: Mongo DB connected
+2024-08-23 11:42:4207 info: Server ready on port 3000
+2024-08-23 11:42:4227 error: products validation failed: category: Path `category` is required.
+2024-08-23 11:42:4227 error:  - products validation failed: category: Path `category` is required.
+2024-08-23 11:48:4851 info: Mongo DB connected
+2024-08-23 11:48:4852 info: Server ready on port 3000
+2024-08-23 11:48:4853 info: Mongo DB connected
+2024-08-23 11:48:4853 info: Server ready on port 3000
+2024-08-23 11:49:4911 info: Mongo DB connected
+2024-08-23 11:49:4911 info: Server ready on port 3000
+2024-08-23 11:49:4919 info: Mongo DB connected
+2024-08-23 11:49:4919 info: Server ready on port 3000
+2024-08-23 11:49:4921 info: Mongo DB connected
+2024-08-23 11:49:4921 info: Server ready on port 3000
+2024-08-23 11:52:5245 info: Mongo DB connected
+2024-08-23 11:52:5245 info: Server ready on port 3000
+2024-08-23 11:53:5306 info: Mongo DB connected
+2024-08-23 11:53:5306 info: Server ready on port 3000
+2024-08-23 11:53:5313 info: Mongo DB connected
+2024-08-23 11:53:5313 info: Server ready on port 3000
+2024-08-23 11:53:5316 info: Mongo DB connected
+2024-08-23 11:53:5316 info: Server ready on port 3000
+2024-08-23 11:53:5317 info: Mongo DB connected
+2024-08-23 11:53:5317 info: Server ready on port 3000
+2024-08-23 11:53:5320 info: Mongo DB connected
+2024-08-23 11:53:5320 info: Server ready on port 3000
+2024-08-23 11:53:5336 info: Mongo DB connected
+2024-08-23 11:53:5336 info: Server ready on port 3000
+2024-08-23 11:53:5338 info: Mongo DB connected
+2024-08-23 11:53:5338 info: Server ready on port 3000
+2024-08-23 11:54:5412 info: Mongo DB connected
+2024-08-23 11:54:5412 info: Server ready on port 3000
+2024-08-23 11:54:5432 info: Mongo DB connected
+2024-08-23 11:54:5432 info: Server ready on port 3000
+2024-08-23 11:54:5444 info: Mongo DB connected
+2024-08-23 11:54:5444 info: Server ready on port 3000
+2024-08-23 11:54:5446 info: Mongo DB connected
+2024-08-23 11:54:5446 info: Server ready on port 3000
+2024-08-23 11:54:5448 info: Mongo DB connected
+2024-08-23 11:54:5448 info: Server ready on port 3000
+2024-08-23 11:54:5452 info: Mongo DB connected
+2024-08-23 11:54:5452 info: Server ready on port 3000
+2024-08-23 11:54:5458 info: Mongo DB connected
+2024-08-23 11:54:5458 info: Server ready on port 3000
+2024-08-23 11:55:5539 info: Mongo DB connected
+2024-08-23 11:55:5539 info: Server ready on port 3000
+2024-08-23 11:55:5540 info: Mongo DB connected
+2024-08-23 11:55:5540 info: Server ready on port 3000
+2024-08-23 11:55:5544 info: Mongo DB connected
+2024-08-23 11:55:5544 info: Server ready on port 3000
+2024-08-23 11:56:5600 info: Mongo DB connected
+2024-08-23 11:56:5600 info: Server ready on port 3000
+2024-08-23 11:56:5610 info: Mongo DB connected
+2024-08-23 11:56:5610 info: Server ready on port 3000
+2024-08-23 11:56:5615 info: Mongo DB connected
+2024-08-23 11:56:5615 info: Server ready on port 3000
+2024-08-23 11:56:5618 info: Mongo DB connected
+2024-08-23 11:56:5618 info: Server ready on port 3000
+2024-08-23 11:56:5627 info: Mongo DB connected
+2024-08-23 11:56:5627 info: Server ready on port 3000
+2024-08-23 11:56:5632 info: Mongo DB connected
+2024-08-23 11:56:5632 info: Server ready on port 3000
+2024-08-23 11:56:5641 info: Mongo DB connected
+2024-08-23 11:56:5641 info: Server ready on port 3000
+2024-08-23 11:57:5708 info: Mongo DB connected
+2024-08-23 11:57:5708 info: Server ready on port 3000
+2024-08-23 11:57:5723 info: Mongo DB connected
+2024-08-23 11:57:5723 info: Server ready on port 3000
+2024-08-23 11:57:5732 info: Mongo DB connected
+2024-08-23 11:57:5732 info: Server ready on port 3000
+2024-08-23 11:57:5734 info: Mongo DB connected
+2024-08-23 11:57:5734 info: Server ready on port 3000
+2024-08-23 12:01:108 info: Mongo DB connected
+2024-08-23 12:01:108 info: Server ready on port 3000
+2024-08-23 12:03:310 info: Mongo DB connected
+2024-08-23 12:03:310 info: Server ready on port 3000
+2024-08-23 12:03:314 info: Mongo DB connected
+2024-08-23 12:03:314 info: Server ready on port 3000
+2024-08-23 12:04:447 info: Mongo DB connected
+2024-08-23 12:04:447 info: Server ready on port 3000
+2024-08-23 12:04:449 info: Mongo DB connected
+2024-08-23 12:04:449 info: Server ready on port 3000
+2024-08-23 12:04:454 info: Mongo DB connected
+2024-08-23 12:04:454 info: Server ready on port 3000
+2024-08-23 12:04:459 info: Mongo DB connected
+2024-08-23 12:04:459 info: Server ready on port 3000
+2024-08-23 12:05:516 info: Mongo DB connected
+2024-08-23 12:05:516 info: Server ready on port 3000
+2024-08-23 12:05:519 info: Mongo DB connected
+2024-08-23 12:05:519 info: Server ready on port 3000
+2024-08-23 12:05:528 info: Mongo DB connected
+2024-08-23 12:05:528 info: Server ready on port 3000
+2024-08-23 12:05:531 info: Mongo DB connected
+2024-08-23 12:05:531 info: Server ready on port 3000
+2024-08-23 12:05:533 info: Mongo DB connected
+2024-08-23 12:05:533 info: Server ready on port 3000
+2024-08-23 12:05:543 info: Mongo DB connected
+2024-08-23 12:05:543 info: Server ready on port 3000
+2024-08-23 12:05:546 info: Mongo DB connected
+2024-08-23 12:05:546 info: Server ready on port 3000
+2024-08-23 13:29:2914 info: Mongo DB connected
+2024-08-23 13:29:2914 info: Server ready on port 3000
+2024-08-23 13:29:2917 info: Mongo DB connected
+2024-08-23 13:29:2917 info: Server ready on port 3000
+2024-08-23 13:29:2925 info: Mongo DB connected
+2024-08-23 13:29:2925 info: Server ready on port 3000
+2024-08-23 13:29:2927 info: Mongo DB connected
+2024-08-23 13:29:2927 info: Server ready on port 3000
+2024-08-23 13:29:2944 info: Mongo DB connected
+2024-08-23 13:29:2944 info: Server ready on port 3000
+2024-08-23 13:29:2952 info: Mongo DB connected
+2024-08-23 13:29:2952 info: Server ready on port 3000
+2024-08-23 13:29:2954 info: Mongo DB connected
+2024-08-23 13:29:2954 info: Server ready on port 3000
+2024-08-23 13:29:2957 info: Mongo DB connected
+2024-08-23 13:29:2957 info: Server ready on port 3000
+2024-08-23 13:30:3003 info: Mongo DB connected
+2024-08-23 13:30:3003 info: Server ready on port 3000
+2024-08-23 13:30:3005 info: Mongo DB connected
+2024-08-23 13:30:3005 info: Server ready on port 3000
+2024-08-23 13:30:3009 info: Mongo DB connected
+2024-08-23 13:30:3009 info: Server ready on port 3000
+2024-08-23 13:30:3028 info: Mongo DB connected
+2024-08-23 13:30:3028 info: Server ready on port 3000
+2024-08-23 13:30:3035 info: Mongo DB connected
+2024-08-23 13:30:3035 info: Server ready on port 3000
+2024-08-23 13:30:3053 info: Mongo DB connected
+2024-08-23 13:30:3053 info: Server ready on port 3000
+2024-08-23 13:31:3104 info: Mongo DB connected
+2024-08-23 13:31:3104 info: Server ready on port 3000
+2024-08-23 13:38:3834 info: Mongo DB connected
+2024-08-23 13:38:3834 info: Server ready on port 3000
+2024-08-23 13:38:3854 info: Mongo DB connected
+2024-08-23 13:38:3854 info: Server ready on port 3000
+2024-08-23 13:39:3903 info: Mongo DB connected
+2024-08-23 13:39:3903 info: Server ready on port 3000
+2024-08-23 13:40:4057 info: Mongo DB connected
+2024-08-23 13:40:4057 info: Server ready on port 3000
+2024-08-23 13:41:4103 info: Mongo DB connected
+2024-08-23 13:41:4103 info: Server ready on port 3000
+2024-08-23 13:41:4120 info: Mongo DB connected
+2024-08-23 13:41:4120 info: Server ready on port 3000
+2024-08-23 13:41:4123 info: Mongo DB connected
+2024-08-23 13:41:4123 info: Server ready on port 3000
+2024-08-23 13:41:4131 info: Mongo DB connected
+2024-08-23 13:41:4131 info: Server ready on port 3000
+2024-08-23 13:41:4144 info: Mongo DB connected
+2024-08-23 13:41:4144 info: Server ready on port 3000
+2024-08-23 13:41:4151 info: Mongo DB connected
+2024-08-23 13:41:4151 info: Server ready on port 3000
+2024-08-23 13:42:4207 info: Mongo DB connected
+2024-08-23 13:42:4207 info: Server ready on port 3000
+2024-08-23 13:43:4326 info: Mongo DB connected
+2024-08-23 13:43:4326 info: Server ready on port 3000
+2024-08-23 13:44:4417 info: Mongo DB connected
+2024-08-23 13:44:4417 info: Server ready on port 3000
+2024-08-23 13:44:4420 info: Mongo DB connected
+2024-08-23 13:44:4420 info: Server ready on port 3000
+2024-08-23 13:44:4424 info: Mongo DB connected
+2024-08-23 13:44:4424 info: Server ready on port 3000
+2024-08-23 13:44:4428 info: Mongo DB connected
+2024-08-23 13:44:4428 info: Server ready on port 3000
+2024-08-23 13:46:4614 error: User not authorized
+2024-08-23 13:50:5056 info: Mongo DB connected
+2024-08-23 13:50:5056 info: Server ready on port 3000
+2024-08-23 13:51:5109 info: Mongo DB connected
+2024-08-23 13:51:5109 info: Server ready on port 3000
+2024-08-23 13:51:5119 info: Mongo DB connected
+2024-08-23 13:51:5119 info: Server ready on port 3000
+2024-08-23 13:51:5121 info: Mongo DB connected
+2024-08-23 13:51:5121 info: Server ready on port 3000
+2024-08-23 13:51:5147 info: Mongo DB connected
+2024-08-23 13:51:5147 info: Server ready on port 3000
+2024-08-23 13:51:5152 info: Mongo DB connected
+2024-08-23 13:51:5152 info: Server ready on port 3000
+2024-08-23 13:52:5201 info: Mongo DB connected
+2024-08-23 13:52:5201 info: Server ready on port 3000
+2024-08-23 13:52:5207 info: Mongo DB connected
+2024-08-23 13:52:5207 info: Server ready on port 3000
+2024-08-23 13:52:5214 info: Mongo DB connected
+2024-08-23 13:52:5214 info: Server ready on port 3000
+2024-08-23 13:52:5218 info: Mongo DB connected
+2024-08-23 13:52:5218 info: Server ready on port 3000
+2024-08-23 13:52:5237 info: Mongo DB connected
+2024-08-23 13:52:5237 info: Server ready on port 3000
+2024-08-23 13:52:5247 info: Mongo DB connected
+2024-08-23 13:52:5247 info: Server ready on port 3000
+2024-08-23 13:52:5256 info: Mongo DB connected
+2024-08-23 13:52:5256 info: Server ready on port 3000
+2024-08-23 13:53:5308 info: Mongo DB connected
+2024-08-23 13:53:5308 info: Server ready on port 3000
+2024-08-23 13:53:5315 info: Mongo DB connected
+2024-08-23 13:53:5315 info: Server ready on port 3000
+2024-08-23 13:53:5318 info: Mongo DB connected
+2024-08-23 13:53:5318 info: Server ready on port 3000
+2024-08-23 13:53:5320 info: Mongo DB connected
+2024-08-23 13:53:5320 info: Server ready on port 3000
+2024-08-23 13:53:5324 info: Mongo DB connected
+2024-08-23 13:53:5324 info: Server ready on port 3000
+2024-08-23 13:53:5327 info: Mongo DB connected
+2024-08-23 13:53:5327 info: Server ready on port 3000
+2024-08-23 13:53:5353 info: Mongo DB connected
+2024-08-23 13:53:5353 info: Server ready on port 3000
+2024-08-23 13:54:5403 info: Mongo DB connected
+2024-08-23 13:54:5403 info: Server ready on port 3000
+2024-08-23 13:55:5512 info: Mongo DB connected
+2024-08-23 13:55:5512 info: Server ready on port 3000
+2024-08-23 13:55:5521 info: Mongo DB connected
+2024-08-23 13:55:5521 info: Server ready on port 3000
+2024-08-23 13:55:5544 info: Mongo DB connected
+2024-08-23 13:55:5544 info: Server ready on port 3000
+2024-08-23 13:56:5616 info: Mongo DB connected
+2024-08-23 13:56:5616 info: Server ready on port 3000
+2024-08-23 13:56:5622 info: Mongo DB connected
+2024-08-23 13:56:5622 info: Server ready on port 3000
+2024-08-23 13:56:5630 info: Mongo DB connected
+2024-08-23 13:56:5630 info: Server ready on port 3000
+2024-08-23 13:59:5916 info: Mongo DB connected
+2024-08-23 13:59:5916 info: Server ready on port 3000
+2024-08-23 14:01:158 error: User not authorized
+2024-08-23 14:03:355 error: User not authorized
+2024-08-23 14:12:1211 info: Mongo DB connected
+2024-08-23 14:12:1211 info: Server ready on port 3000
+2024-08-23 14:12:1233 error: User not authorized
+2024-08-23 14:13:1316 info: Mongo DB connected
+2024-08-23 14:13:1316 info: Server ready on port 3000
+2024-08-23 14:13:1319 error: User not authorized
+2024-08-23 14:14:1415 error: User not authorized
+2024-08-23 14:17:1703 info: Mongo DB connected
+2024-08-23 14:17:1703 info: Server ready on port 3000
+2024-08-23 14:17:1705 info: Mongo DB connected
+2024-08-23 14:17:1705 info: Server ready on port 3000
+2024-08-23 14:17:1711 info: Mongo DB connected
+2024-08-23 14:17:1711 info: Server ready on port 3000
+2024-08-23 14:17:1715 info: Mongo DB connected
+2024-08-23 14:17:1715 info: Server ready on port 3000
+2024-08-23 14:17:1756 info: Mongo DB connected
+2024-08-23 14:17:1756 info: Server ready on port 3000
+2024-08-23 14:18:1816 info: Mongo DB connected
+2024-08-23 14:18:1816 info: Server ready on port 3000
+2024-08-23 14:18:1820 info: Mongo DB connected
+2024-08-23 14:18:1820 info: Server ready on port 3000
+2024-08-23 14:18:1822 info: Mongo DB connected
+2024-08-23 14:18:1822 info: Server ready on port 3000
+2024-08-23 14:18:1825 info: Mongo DB connected
+2024-08-23 14:18:1825 info: Server ready on port 3000
+2024-08-23 14:18:1828 info: Mongo DB connected
+2024-08-23 14:18:1828 info: Server ready on port 3000
+2024-08-23 14:18:1844 info: Mongo DB connected
+2024-08-23 14:18:1844 info: Server ready on port 3000
+2024-08-23 14:20:2005 info: Mongo DB connected
+2024-08-23 14:20:2005 info: Server ready on port 3000
+2024-08-23 14:20:2007 info: Mongo DB connected
+2024-08-23 14:20:2007 info: Server ready on port 3000
+2024-08-23 14:20:2010 info: Mongo DB connected
+2024-08-23 14:20:2010 info: Server ready on port 3000
+2024-08-23 14:20:2014 info: Mongo DB connected
+2024-08-23 14:20:2014 info: Server ready on port 3000
+2024-08-23 14:20:2047 info: Mongo DB connected
+2024-08-23 14:20:2047 info: Server ready on port 3000
+2024-08-23 14:21:2141 info: Mongo DB connected
+2024-08-23 14:21:2141 info: Server ready on port 3000

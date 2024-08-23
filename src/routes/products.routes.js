@@ -6,16 +6,16 @@ const router = Router()
 
 // Configuración de solicitudes / peticiones
 
-router.post("/", passportCall("jwt"), authorization("admin"), productsController.create) // solo un usuario con rol de administrador puede crear un producto
-
 router.get("/", productsController.getAll) 
-
-router.get("/mockingproducts", productsController.createProductsMocks) 
 
 router.get("/:pid", productsController.getById) 
 
-router.put("/:pid", passportCall("jwt"), authorization("admin"), productsController.update)
+router.post("/", passportCall("jwt"), authorization(["admin", "premium"]), productsController.create) 
 
-router.delete("/:pid", passportCall("jwt"), authorization("admin"), productsController.deleteOne)
+router.put("/:pid", passportCall("jwt"), authorization(["admin", "premium"]), productsController.update)
+
+router.delete("/:pid", passportCall("jwt"), authorization(["admin", "premium"]), productsController.deleteOne)
+
+router.get("/mockingproducts", productsController.createProductsMocks) 
 
 export default router

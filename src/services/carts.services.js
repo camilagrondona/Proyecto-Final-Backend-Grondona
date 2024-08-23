@@ -1,12 +1,16 @@
 import cartsRepository from "../persistences/mongo/repositories/carts.repository.js"
 import productsRepository from "../persistences/mongo/repositories/products.repository.js"
-import error from "../errors/customErrors.js"
+import customErrors from "../errors/customErrors.js"
 
 const createCart = async () => {
     return await cartsRepository.create()
 }
 
-const addProductToCart = async (cid, pid) => {
+const addProductToCart = async (cid, pid, user) => {
+    const product = await productsRepository.getById(pid)
+    if (user.role === "premium" && product.owner === user._id){
+        throw customErrors.unauthorizedError("User not authorized")
+    }
     return await cartsRepository.addProductToCart(cid, pid)
     /*Opción 2: 
         const cart = await cartsRepository.addProductToCart(cid, pid)
@@ -23,20 +27,20 @@ const deleteProductInCart = async (cid, pid) => {
 
 const getCartById = async (id) => {
     const cart = await cartsRepository.getById(id)
-    if (!cart) throw error.notFoundError(`Cart id ${id} not found`)
+    if (!cart) throw customErrors.notFoundError(`Cart id ${id} not found`)
     return cart
 }
 
 const deleteAllProductsInCart = async (cid) => {
     const cart = await cartsRepository.deleteAllProductsInCart(cid)
-    if (!cart) throw error.notFoundError(`Cart id ${id} not found`)
+    if (!cart) throw customErrors.notFoundError(`Cart id ${id} not found`)
     return cart
 }
 
 const purchaseCart = async (cid) => {
     const cart = await cartsRepository.getById(cid)
     // Chequeamos cuáles son los productos que quedan en el carrito (sin stock suficiente)
-    if (!cart) throw error.notFoundError(`Cart id ${id} not found`)
+    if (!cart) throw customErrors.notFoundError(`Cart id ${id} not found`)
     let total = 0 // total de productos en el carrito
     const products = [] // Acá colocamos los productos que no van a entrar en la compra para actualizar el carrito
     for (const product of cart.products) { // Se usa el for of y no el for each porque hay asincronismo y el forEach no respeta el tiempo de espera de los await 
