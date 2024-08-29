@@ -27,3 +27,5 @@
 2024-08-23 14:12:1233 error: User not authorized
 2024-08-23 14:13:1319 error: User not authorized
 2024-08-23 14:14:1415 error: User not authorized
+2024-08-28 15:47:4723 error: Cast to ObjectId failed for value "dfgg" (type string) at path "_id" for model "products"
+2024-08-28 15:47:4723 error: _id - Cast to ObjectId failed for value "dfgg" (type string) at path "_id" for model "products"

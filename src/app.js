@@ -7,8 +7,10 @@ import passport from "passport"
 import initializePassport from "./config/passport.config.js"
 import cookieParser from "cookie-parser"
 import envs from "./config/env.config.js"
+import swaggerUiExpress from "swagger-ui-express"
 import { errorHandle } from "./errors/errorHandle.js"
 import { logger } from "./utils/logger.js"
+import { specs } from "./config/swagger.config.js"
 
 // Conexión con MongoDB
 
@@ -44,6 +46,10 @@ app.use(passport.session())
 // Función que inicializa las estrategias 
 
 initializePassport() 
+
+// Swagger 
+
+app.use("/api-docs", swaggerUiExpress.serve, swaggerUiExpress.setup(specs))
 
 // Agregamos el prefijo api a nuestras rutas
 

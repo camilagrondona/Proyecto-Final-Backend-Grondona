@@ -8,9 +8,7 @@ const router = Router()
 
 // Configuración de solicitudes / peticiones
 
- router.post("/", passportCall("jwt"), authorization("admin"), cartsController.createCart) // El middleware de authorization necesita saber qué tipo de usuario es, por eso tenemos que llamar a la estrategia primero, para evitar que el usuario quede como undefined y no avance en la función. 
-
-router.post("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium"]), checkProductAndCart,  cartsController.addProductToCart) // middleware de check product and cart para verificar que ambos existen antes de ejecutar la función e isUserCart para chequear que ese carrito corresponde al usuario logueado
+router.post("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium"]), checkProductAndCart, isUserCart, cartsController.addProductToCart) // middleware de check product and cart para verificar que ambos existen antes de ejecutar la función e isUserCart para chequear que ese carrito corresponde al usuario logueado
 
 router.put ("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium"]), checkProductAndCart, cartsController.updateQuantityProductInCart)
 

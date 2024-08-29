@@ -1,0 +1,91 @@
+paths:
+    /api/products/{pid}:
+        put:
+            tags:
+                - Products
+            summary: Update product by id
+            parameters:
+              - name: pid
+                in: path
+                description: Product ID
+                required: true
+                schema: 
+                  type: string
+            requestBody:
+              required: true
+              content:
+                application/json:
+                    schema:
+                        $ref: "#components/requestBodies/updateProduct"
+            responses:
+                "200":
+                    description: The product was updated successfully.
+                    content:
+                      application/json:
+                        schema:
+                          $ref: "#components/schemas/ProductsById"
+                "404":
+                    description: Product not found.
+                "500":
+                    description: Internal Server Error.
+
+components:
+    schemas:
+        ProductsById:
+            type: object
+            properties:
+                _id:
+                    type: ObjectId
+                title:
+                    type: string
+                description:
+                    type: string
+                thumbnail:
+                    type: array
+                code:
+                    type: string
+                stock:
+                    type: integer
+                status:
+                    type: boolean
+                price:
+                    type: number
+                category:
+                    type: string
+            example:
+                _id: "66437ccc59267f22ecb1ac44"
+                title: "Remera Star Wars"
+                description: "Remera negra talle XL con diseño Star Wars" 
+                thumbnail: ["http://www.ropacanchera.com/remeras-star-wars-1"]
+                code: "CGTP1234"
+                stock: 10
+                status: true
+                price: 12000
+                category: "Remeras"
+
+    requestBodies:
+      updateProduct:
+        type: object
+        properties:
+            title:
+                type: string
+            description:
+                type: string
+            thumbnail:
+                type: array
+            code:
+                type: string
+            stock:
+                type: integer
+            price:
+                type: number
+            category:
+                type: string
+        example:
+          title: "Remera Star Wars"
+          description: "Remera negra talle XL con diseño Star Wars" 
+          thumbnail: ["http://www.ropacanchera.com/remeras-star-wars-1"]
+          code: "CGTP1234"
+          stock: 10
+          price: 12000
+          category: "Remeras"

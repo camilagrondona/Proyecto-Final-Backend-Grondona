@@ -1,0 +1,18 @@
+paths:
+  /api/carts/{cid}:
+    delete:
+      tags:
+        - Cart
+      summary: Delete all products in cart.
+      parameters:
+        - name: cid
+          in: path
+          description: Cart ID
+          required: true
+          schema: 
+            type: string
+      responses:
+        "200": 
+          description: Your cart is empty.
+        "500":
+          description: Internal Server Error.

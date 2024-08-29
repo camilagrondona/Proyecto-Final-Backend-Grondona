@@ -1,0 +1,46 @@
+paths:
+    /api/products:
+        post:
+            tags:
+                - Products
+            summary: Create product
+            requestBody:
+              required: true
+              content:
+                application/json:
+                    schema:
+                        $ref: "#components/requestBodies/createProduct"
+
+            responses:
+                "201":
+                    description: The product was crated successfully.
+                "500":
+                    description: Internal Server Error.
+        
+components:
+  requestBodies:
+    createProduct:
+      type: object
+      properties:
+          title:
+              type: string
+          description:
+              type: string
+          thumbnail:
+              type: array
+          code:
+              type: string
+          stock:
+              type: integer
+          price:
+              type: number
+          category:
+              type: string
+      example:
+          title: "Remera Star Wars"
+          description: "Remera negra talle XL con diseño Star Wars" 
+          thumbnail: ["http://www.ropacanchera.com/remeras-star-wars-1"]
+          code: "CGTP1234"
+          stock: 10
+          price: 12000
+          category: "Remeras"

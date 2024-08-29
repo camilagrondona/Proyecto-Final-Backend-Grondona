@@ -1,0 +1,24 @@
+paths:
+  /api/carts/{cid}/product/{pid}:
+    put:
+      tags:
+        - Cart
+      summary: Update product quantity in cart.
+      parameters:
+        - name: cid
+          in: path
+          description: Cart ID
+          required: true
+          schema: 
+            type: string
+        - name: pid
+          in: path
+          description: Product ID
+          required: true
+          schema: 
+            type: string
+      responses:
+        "200": 
+          description: Product quantity updated.
+        "500":
+          description: Internal Server Error.
