@@ -75,7 +75,7 @@ try {
     const { pid } = req.params // capturamos el id
     await productsServices.deleteOne(pid, req.user) // eliminamos el recurso 
 
-    return res.status(200).json({ status: "Success", payload: "Producto eliminado" })
+    return res.status(200).json({ status: "Success", payload: "Product deleted" })
 } catch (error) {
     logger.log("error", error.message)
     next(error)

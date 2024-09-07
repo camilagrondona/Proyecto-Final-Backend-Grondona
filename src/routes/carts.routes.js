@@ -8,17 +8,19 @@ const router = Router()
 
 // Configuración de solicitudes / peticiones
 
-router.post("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium"]), checkProductAndCart, isUserCart, cartsController.addProductToCart) // middleware de check product and cart para verificar que ambos existen antes de ejecutar la función e isUserCart para chequear que ese carrito corresponde al usuario logueado
+router.post("/", passportCall("jwt"), authorization(["user", "premium", "admin"]), cartsController.createCart)
 
-router.put ("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium"]), checkProductAndCart, cartsController.updateQuantityProductInCart)
+router.post("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium", "admin"]), cartsController.addProductToCart) // middleware de check product and cart para verificar que ambos existen antes de ejecutar la función e isUserCart para chequear que ese carrito corresponde al usuario logueado
 
-router.delete ("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium"]), checkProductAndCart, cartsController.deleteProductInCart)
+router.put ("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium", "admin"]),  cartsController.updateQuantityProductInCart)
 
-router.get("/:cid", passportCall("jwt"), authorization(["user", "premium"]), cartsController.getCartById) 
+router.delete ("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium", "admin"]), cartsController.deleteProductInCart)
 
-router.delete("/:cid", passportCall("jwt"), authorization(["user", "premium"]), cartsController.deleteAllProductsInCart)
+router.get("/:cid", passportCall("jwt"), authorization(["user", "premium", "admin"]), cartsController.getCartById) 
 
-router.get("/:cid/purchase", passportCall("jwt"), authorization(["user", "premium"]), cartsController.purchaseCart)
+router.delete("/:cid", passportCall("jwt"), authorization(["user", "premium", "admin"]), cartsController.deleteAllProductsInCart)
+
+router.get("/:cid/purchase", passportCall("jwt"), authorization(["user", "premium", "admin"]), cartsController.purchaseCart)
 
 
 export default router

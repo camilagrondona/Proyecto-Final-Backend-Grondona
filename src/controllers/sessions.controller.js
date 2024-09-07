@@ -6,7 +6,7 @@ import { logger } from "../utils/logger.js"
 
 const register = async (req, res, next) => {
     try {
-        res.status(201).json({ status: "success", message: "Usuario creado con éxito" })
+        res.status(201).json({ status: "success", message: "User created successfully" })
     } catch (error) {
         logger.log("error", error.message)
         next(error)
@@ -28,7 +28,7 @@ const login = async (req, res, next) => {
 
 const current = async (req, res, next) => {
     try {
-        const user = userResponseDto(req.user) // El DTO filtra la info del usuario
+        const user = req.user 
         return res.status(200).json({ status: "Success", payload: user }) // Si pasa las verificaciones nos devuelve los datos del usuario filtrado por el DTO
     } catch (error) {
         logger.log("error", error.message)

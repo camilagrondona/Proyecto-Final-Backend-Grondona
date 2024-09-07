@@ -29,3 +29,10 @@
 2024-08-23 14:14:1415 error: User not authorized
 2024-08-28 15:47:4723 error: Cast to ObjectId failed for value "dfgg" (type string) at path "_id" for model "products"
 2024-08-28 15:47:4723 error: _id - Cast to ObjectId failed for value "dfgg" (type string) at path "_id" for model "products"
+2024-09-06 14:53:5344 error: Product id 66dafb576a2ebdfae179ee5d not found
+2024-09-06 14:54:5416 error: Product id 66dafb781963cefb59bc87af not found
+2024-09-06 14:54:5428 error: Product id 66dafb841963cefb59bc87b5 not found
+2024-09-06 17:55:5510 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-06 17:55:5510 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-06 17:59:5926 error: userDto is not defined
+2024-09-06 17:59:5926 error:  - userDto is not defined

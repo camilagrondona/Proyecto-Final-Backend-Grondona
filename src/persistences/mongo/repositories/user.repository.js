@@ -5,8 +5,8 @@ const create = async (data) => {
     return user
 }
 
-const getAll = async (query, options) => {
-    const users = await userModel.paginate(query, options)
+const getAll = async () => {
+    const users = await userModel.find()
     return users // retorna los usuarios encontrados
 }
 const getById = async (id) => {

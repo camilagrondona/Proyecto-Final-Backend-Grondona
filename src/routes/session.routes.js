@@ -11,7 +11,7 @@ router.post("/register", passportCall("register"), sessionControllers.register)
 
 router.post("/login", passportCall ("login"), sessionControllers.login)
 
-router.get("/current", passportCall("jwt"), authorization("user"), sessionControllers.current) // Verificación del token
+router.get("/current", passportCall("jwt"), authorization(["user", "premium", "admin"]), sessionControllers.current) // Verificación del token
 
 router.get("/google", passport.authenticate("google", {
     scope: ["https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile"], // Le indicamos los endpoint de donde va a sacar la info  
