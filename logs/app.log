@@ -2524,3 +2524,255 @@
 2024-09-06 18:27:2758 info: Server ready on port 3000
 2024-09-06 18:28:2818 info: Mongo DB connected
 2024-09-06 18:28:2818 info: Server ready on port 3000
+2024-09-10 11:01:154 info: Mongo DB connected
+2024-09-10 11:01:154 info: Server ready on port 3000
+2024-09-10 11:02:219 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:02:219 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:02:219 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:02:219 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:04:457 info: Mongo DB connected
+2024-09-10 11:04:457 info: Server ready on port 3000
+2024-09-10 11:04:459 info: Mongo DB connected
+2024-09-10 11:04:459 info: Server ready on port 3000
+2024-09-10 11:09:927 info: Mongo DB connected
+2024-09-10 11:09:927 info: Server ready on port 3000
+2024-09-10 11:09:935 info: Mongo DB connected
+2024-09-10 11:09:935 info: Server ready on port 3000
+2024-09-10 11:09:943 info: Mongo DB connected
+2024-09-10 11:09:943 info: Server ready on port 3000
+2024-09-10 11:10:1035 info: Mongo DB connected
+2024-09-10 11:10:1035 info: Server ready on port 3000
+2024-09-10 11:10:1057 info: Mongo DB connected
+2024-09-10 11:10:1057 info: Server ready on port 3000
+2024-09-10 11:10:1058 info: Mongo DB connected
+2024-09-10 11:10:1058 info: Server ready on port 3000
+2024-09-10 11:11:1108 info: Mongo DB connected
+2024-09-10 11:11:1108 info: Server ready on port 3000
+2024-09-10 11:13:1319 info: Mongo DB connected
+2024-09-10 11:13:1319 info: Server ready on port 3000
+2024-09-10 11:13:1321 info: Mongo DB connected
+2024-09-10 11:13:1321 info: Server ready on port 3000
+2024-09-10 11:13:1326 info: Mongo DB connected
+2024-09-10 11:13:1326 info: Server ready on port 3000
+2024-09-10 11:14:1402 info: Mongo DB connected
+2024-09-10 11:14:1402 info: Server ready on port 3000
+2024-09-10 11:14:1428 info: Mongo DB connected
+2024-09-10 11:14:1428 info: Server ready on port 3000
+2024-09-10 11:14:1459 info: Mongo DB connected
+2024-09-10 11:14:1459 info: Server ready on port 3000
+2024-09-10 11:15:1503 info: Mongo DB connected
+2024-09-10 11:15:1503 info: Server ready on port 3000
+2024-09-10 11:15:1510 info: Mongo DB connected
+2024-09-10 11:15:1510 info: Server ready on port 3000
+2024-09-10 11:15:1517 info: Mongo DB connected
+2024-09-10 11:15:1517 info: Server ready on port 3000
+2024-09-10 11:15:1532 info: Mongo DB connected
+2024-09-10 11:15:1532 info: Server ready on port 3000
+2024-09-10 11:15:1547 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:15:1547 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:15:1547 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:15:1547 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:16:1611 info: Mongo DB connected
+2024-09-10 11:16:1611 info: Server ready on port 3000
+2024-09-10 11:16:1619 info: Mongo DB connected
+2024-09-10 11:16:1619 info: Server ready on port 3000
+2024-09-10 11:16:1621 info: Mongo DB connected
+2024-09-10 11:16:1621 info: Server ready on port 3000
+2024-09-10 11:16:1645 info: Mongo DB connected
+2024-09-10 11:16:1645 info: Server ready on port 3000
+2024-09-10 11:16:1647 info: Mongo DB connected
+2024-09-10 11:16:1647 info: Server ready on port 3000
+2024-09-10 11:31:3145 info: Mongo DB connected
+2024-09-10 11:31:3145 info: Server ready on port 3000
+2024-09-10 11:32:3231 info: Mongo DB connected
+2024-09-10 11:32:3231 info: Server ready on port 3000
+2024-09-10 11:34:3426 info: Mongo DB connected
+2024-09-10 11:34:3426 info: Server ready on port 3000
+2024-09-10 11:34:3429 info: Mongo DB connected
+2024-09-10 11:34:3429 info: Server ready on port 3000
+2024-09-10 11:36:3621 info: Mongo DB connected
+2024-09-10 11:36:3621 info: Server ready on port 3000
+2024-09-10 11:36:3631 info: Mongo DB connected
+2024-09-10 11:36:3631 info: Server ready on port 3000
+2024-09-10 11:36:3638 info: Mongo DB connected
+2024-09-10 11:36:3638 info: Server ready on port 3000
+2024-09-10 11:37:3720 info: Mongo DB connected
+2024-09-10 11:37:3720 info: Server ready on port 3000
+2024-09-10 11:37:3723 info: Mongo DB connected
+2024-09-10 11:37:3723 info: Server ready on port 3000
+2024-09-10 11:38:3852 info: Mongo DB connected
+2024-09-10 11:38:3852 info: Server ready on port 3000
+2024-09-10 11:39:3907 info: Mongo DB connected
+2024-09-10 11:39:3907 info: Server ready on port 3000
+2024-09-10 11:39:3921 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:39:3921 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:41:4131 info: Mongo DB connected
+2024-09-10 11:41:4131 info: Server ready on port 3000
+2024-09-10 11:41:4149 info: Mongo DB connected
+2024-09-10 11:41:4149 info: Server ready on port 3000
+2024-09-10 11:41:4151 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:41:4151 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:42:4205 info: Mongo DB connected
+2024-09-10 11:42:4205 info: Server ready on port 3000
+2024-09-10 11:42:4210 info: Mongo DB connected
+2024-09-10 11:42:4210 info: Server ready on port 3000
+2024-09-10 11:42:4215 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:42:4215 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:44:4415 info: Mongo DB connected
+2024-09-10 11:44:4415 info: Server ready on port 3000
+2024-09-10 11:44:4417 info: Mongo DB connected
+2024-09-10 11:44:4417 info: Server ready on port 3000
+2024-09-10 11:44:4420 info: Mongo DB connected
+2024-09-10 11:44:4420 info: Server ready on port 3000
+2024-09-10 11:45:4546 info: Mongo DB connected
+2024-09-10 11:45:4546 info: Server ready on port 3000
+2024-09-10 11:46:4603 info: Mongo DB connected
+2024-09-10 11:46:4603 info: Server ready on port 3000
+2024-09-10 11:46:4604 info: Mongo DB connected
+2024-09-10 11:46:4604 info: Server ready on port 3000
+2024-09-10 11:46:4608 info: Mongo DB connected
+2024-09-10 11:46:4608 info: Server ready on port 3000
+2024-09-10 11:46:4613 info: Mongo DB connected
+2024-09-10 11:46:4613 info: Server ready on port 3000
+2024-09-10 11:46:4616 info: Mongo DB connected
+2024-09-10 11:46:4616 info: Server ready on port 3000
+2024-09-10 11:46:4645 info: Mongo DB connected
+2024-09-10 11:46:4645 info: Server ready on port 3000
+2024-09-10 11:46:4648 info: Mongo DB connected
+2024-09-10 11:46:4648 info: Server ready on port 3000
+2024-09-10 11:46:4651 info: Mongo DB connected
+2024-09-10 11:46:4651 info: Server ready on port 3000
+2024-09-10 11:46:4653 info: Mongo DB connected
+2024-09-10 11:46:4653 info: Server ready on port 3000
+2024-09-10 11:46:4659 info: Mongo DB connected
+2024-09-10 11:46:4659 info: Server ready on port 3000
+2024-09-10 11:47:4700 info: Mongo DB connected
+2024-09-10 11:47:4700 info: Server ready on port 3000
+2024-09-10 11:47:4708 info: Mongo DB connected
+2024-09-10 11:47:4708 info: Server ready on port 3000
+2024-09-10 11:48:4829 info: Mongo DB connected
+2024-09-10 11:48:4829 info: Server ready on port 3000
+2024-09-10 11:48:4832 info: Mongo DB connected
+2024-09-10 11:48:4832 info: Server ready on port 3000
+2024-09-10 11:48:4833 info: Mongo DB connected
+2024-09-10 11:48:4833 info: Server ready on port 3000
+2024-09-10 11:48:4836 info: Mongo DB connected
+2024-09-10 11:48:4836 info: Server ready on port 3000
+2024-09-10 11:48:4837 info: Mongo DB connected
+2024-09-10 11:48:4837 info: Server ready on port 3000
+2024-09-10 11:51:5109 info: Mongo DB connected
+2024-09-10 11:51:5109 info: Server ready on port 3000
+2024-09-10 11:51:5137 info: Mongo DB connected
+2024-09-10 11:51:5137 info: Server ready on port 3000
+2024-09-10 11:51:5139 info: Mongo DB connected
+2024-09-10 11:51:5139 info: Server ready on port 3000
+2024-09-10 11:53:5332 info: Mongo DB connected
+2024-09-10 11:53:5332 info: Server ready on port 3000
+2024-09-10 11:54:5452 info: Mongo DB connected
+2024-09-10 11:54:5452 info: Server ready on port 3000
+2024-09-10 11:55:5515 info: Mongo DB connected
+2024-09-10 11:55:5515 info: Server ready on port 3000
+2024-09-10 11:55:5518 info: Mongo DB connected
+2024-09-10 11:55:5518 info: Server ready on port 3000
+2024-09-10 11:55:5522 info: Mongo DB connected
+2024-09-10 11:55:5522 info: Server ready on port 3000
+2024-09-10 11:55:5523 info: Mongo DB connected
+2024-09-10 11:55:5523 info: Server ready on port 3000
+2024-09-10 11:55:5525 info: Mongo DB connected
+2024-09-10 11:55:5525 info: Server ready on port 3000
+2024-09-10 11:55:5530 info: Mongo DB connected
+2024-09-10 11:55:5530 info: Server ready on port 3000
+2024-09-10 11:55:5532 info: Mongo DB connected
+2024-09-10 11:55:5532 info: Server ready on port 3000
+2024-09-10 11:55:5538 info: Mongo DB connected
+2024-09-10 11:55:5538 info: Server ready on port 3000
+2024-09-10 11:55:5539 info: Mongo DB connected
+2024-09-10 11:55:5539 info: Server ready on port 3000
+2024-09-10 11:57:5728 info: Mongo DB connected
+2024-09-10 11:57:5728 info: Server ready on port 3000
+2024-09-10 11:57:5738 info: Mongo DB connected
+2024-09-10 11:57:5738 info: Server ready on port 3000
+2024-09-10 11:57:5745 info: Mongo DB connected
+2024-09-10 11:57:5745 info: Server ready on port 3000
+2024-09-10 11:57:5748 info: Mongo DB connected
+2024-09-10 11:57:5748 info: Server ready on port 3000
+2024-09-10 11:57:5752 info: Mongo DB connected
+2024-09-10 11:57:5752 info: Server ready on port 3000
+2024-09-10 11:57:5754 info: Mongo DB connected
+2024-09-10 11:57:5754 info: Server ready on port 3000
+2024-09-10 11:58:5818 info: Mongo DB connected
+2024-09-10 11:58:5818 info: Server ready on port 3000
+2024-09-10 11:58:5826 info: Mongo DB connected
+2024-09-10 11:58:5826 info: Server ready on port 3000
+2024-09-10 11:58:5843 info: Mongo DB connected
+2024-09-10 11:58:5843 info: Server ready on port 3000
+2024-09-10 11:58:5853 info: Mongo DB connected
+2024-09-10 11:58:5853 info: Server ready on port 3000
+2024-09-10 11:58:5856 info: Mongo DB connected
+2024-09-10 11:58:5856 info: Server ready on port 3000
+2024-09-10 12:00:024 info: Mongo DB connected
+2024-09-10 12:00:025 info: Server ready on port 3000
+2024-09-10 12:00:030 info: Mongo DB connected
+2024-09-10 12:00:030 info: Server ready on port 3000
+2024-09-10 12:00:034 info: Mongo DB connected
+2024-09-10 12:00:034 info: Server ready on port 3000
+2024-09-10 12:00:051 info: Mongo DB connected
+2024-09-10 12:00:051 info: Server ready on port 3000
+2024-09-10 12:01:119 info: Mongo DB connected
+2024-09-10 12:01:119 info: Server ready on port 3000
+2024-09-10 12:01:123 info: Mongo DB connected
+2024-09-10 12:01:123 info: Server ready on port 3000
+2024-09-10 12:01:127 info: Mongo DB connected
+2024-09-10 12:01:127 info: Server ready on port 3000
+2024-09-10 12:01:135 info: Mongo DB connected
+2024-09-10 12:01:135 info: Server ready on port 3000
+2024-09-10 12:02:208 info: Mongo DB connected
+2024-09-10 12:02:208 info: Server ready on port 3000
+2024-09-10 12:03:300 info: Mongo DB connected
+2024-09-10 12:03:300 info: Server ready on port 3000
+2024-09-10 12:03:330 info: Mongo DB connected
+2024-09-10 12:03:330 info: Server ready on port 3000
+2024-09-10 12:04:431 info: Mongo DB connected
+2024-09-10 12:04:431 info: Server ready on port 3000
+2024-09-10 12:05:503 info: Mongo DB connected
+2024-09-10 12:05:503 info: Server ready on port 3000
+2024-09-10 12:07:740 info: Mongo DB connected
+2024-09-10 12:07:740 info: Server ready on port 3000
+2024-09-10 12:07:759 info: Mongo DB connected
+2024-09-10 12:07:759 info: Server ready on port 3000
+2024-09-10 12:08:850 info: Mongo DB connected
+2024-09-10 12:08:850 info: Server ready on port 3000
+2024-09-10 12:08:855 info: Mongo DB connected
+2024-09-10 12:08:855 info: Server ready on port 3000
+2024-09-10 12:08:857 info: Mongo DB connected
+2024-09-10 12:08:857 info: Server ready on port 3000
+2024-09-10 12:09:900 info: Mongo DB connected
+2024-09-10 12:09:900 info: Server ready on port 3000
+2024-09-10 12:09:943 info: Mongo DB connected
+2024-09-10 12:09:943 info: Server ready on port 3000
+2024-09-10 12:09:946 info: Mongo DB connected
+2024-09-10 12:09:946 info: Server ready on port 3000
+2024-09-10 12:09:948 info: Mongo DB connected
+2024-09-10 12:09:948 info: Server ready on port 3000
+2024-09-10 12:09:950 info: Mongo DB connected
+2024-09-10 12:09:950 info: Server ready on port 3000
+2024-09-10 12:09:955 info: Mongo DB connected
+2024-09-10 12:09:955 info: Server ready on port 3000
+2024-09-10 12:09:958 info: Mongo DB connected
+2024-09-10 12:09:958 info: Server ready on port 3000
+2024-09-10 12:09:959 info: Mongo DB connected
+2024-09-10 12:09:959 info: Server ready on port 3000
+2024-09-10 12:10:1001 info: Mongo DB connected
+2024-09-10 12:10:1001 info: Server ready on port 3000
+2024-09-10 12:10:1034 info: Mongo DB connected
+2024-09-10 12:10:1034 info: Server ready on port 3000
+2024-09-10 12:12:1234 info: Mongo DB connected
+2024-09-10 12:12:1234 info: Server ready on port 3000
+2024-09-10 12:12:1249 info: Mongo DB connected
+2024-09-10 12:12:1249 info: Server ready on port 3000
+2024-09-10 12:12:1252 info: Mongo DB connected
+2024-09-10 12:12:1252 info: Server ready on port 3000
+2024-09-10 12:12:1259 info: Mongo DB connected
+2024-09-10 12:12:1259 info: Server ready on port 3000
+2024-09-10 12:13:1336 info: Mongo DB connected
+2024-09-10 12:13:1336 info: Server ready on port 3000

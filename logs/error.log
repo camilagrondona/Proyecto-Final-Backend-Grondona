@@ -24,3 +24,17 @@
 2024-09-06 17:55:5510 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
 2024-09-06 17:59:5926 error: userDto is not defined
 2024-09-06 17:59:5926 error:  - userDto is not defined
+2024-09-10 11:02:219 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:02:219 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:02:219 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:02:219 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:15:1547 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:15:1547 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:15:1547 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:15:1547 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:39:3921 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:39:3921 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:41:4151 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:41:4151 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:42:4215 error: Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"
+2024-09-10 11:42:4215 error: _id - Cast to ObjectId failed for value "undefined" (type string) at path "_id" for model "carts"

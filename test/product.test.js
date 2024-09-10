@@ -36,7 +36,9 @@ describe("Product Test", () => {
             "stock": 5
         }
 
-        const { status, _body, ok } = await requester.post("/api/products").send(newProduct).set("Cookie", [`${cookie.name}=${cookie.value}`])
+        const { status, _body, ok } = await requester.post("/api/products")
+        .send(newProduct)
+        .set("Cookie", [`${cookie.name}=${cookie.value}`])
         productId = _body.payload._id
 
         expect(status).to.be.equal(201)

@@ -28,7 +28,7 @@ const login = async (req, res, next) => {
 
 const current = async (req, res, next) => {
     try {
-        const user = req.user 
+        const user = userResponseDto(req.user) // El DTO filtra la info del usuario
         return res.status(200).json({ status: "Success", payload: user }) // Si pasa las verificaciones nos devuelve los datos del usuario filtrado por el DTO
     } catch (error) {
         logger.log("error", error.message)

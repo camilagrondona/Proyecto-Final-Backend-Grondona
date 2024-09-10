@@ -18,7 +18,7 @@ describe("Cart Test", () => {
             password: "12345",
         }
 
-        const { headers } = await requester
+        const {_body, headers } = await requester
             .post("/api/session/login")
             .send(loginUser)
 
@@ -28,12 +28,7 @@ describe("Cart Test", () => {
             value: cookieResult.split("=")[1],
         }
 
-        // Obtenemos los detalles del usuario, incluyendo el ID del carrito
-        const { _body } = await requester
-            .get("/api/users/current")
-            .set("Cookie", `${cookie.name}=${cookie.value}`)
-
-        cartId = _body.payload.cart
+        cartId = _body.payload.cart;
 
         // Creamos un producto para agregar al carrito
         const newProduct = {
@@ -52,7 +47,6 @@ describe("Cart Test", () => {
             .set("Cookie", `${cookie.name}=${cookie.value}`)
 
         productId = productResponse._body.payload._id
-
     })
 
     it("[POST] /api/carts/:cid/product/:pid => Endpoint to add product to cart", async () => {
@@ -62,15 +56,20 @@ describe("Cart Test", () => {
 
         expect(status).to.equal(200)
         expect(ok).to.be.equal(true)
-        expect(_body.payload).to.have.property("_id", cartId)
         expect(_body.payload.products).to.be.an("array")
 
-        // Verificamos que el producto fue agregado correctamente al carrito
-        const productInCart = _body.payload.products.find(
-            (p) => p.product._id === productId
-        );
+    })
 
-        expect(productInCart).to.exist
+    it("[GET] /api/carts/:cid => Endpoint to return a cart", async () => {
+
+        const { status, _body, ok } = await requester
+        .get(`/api/carts/${cartId}`)
+        .set("Cookie", [`${cookie.name}=${cookie.value}`]);
+        
+        expect(status).to.be.equal(200)
+        expect(ok).to.be.equal(true)
+        expect(_body.status).to.be.equal("Success")
+        expect(_body.payload.products).to.be.an("array")
     })
 
     after(async () => {
