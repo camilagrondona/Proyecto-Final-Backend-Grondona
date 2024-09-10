@@ -18,7 +18,7 @@ describe("Cart Test", () => {
             password: "12345",
         }
 
-        const {_body, headers } = await requester
+        const { _body, headers } = await requester
             .post("/api/session/login")
             .send(loginUser)
 
@@ -28,7 +28,7 @@ describe("Cart Test", () => {
             value: cookieResult.split("=")[1],
         }
 
-        cartId = _body.payload.cart;
+        cartId = _body.payload.cart
 
         // Creamos un producto para agregar al carrito
         const newProduct = {
@@ -50,6 +50,7 @@ describe("Cart Test", () => {
     })
 
     it("[POST] /api/carts/:cid/product/:pid => Endpoint to add product to cart", async () => {
+
         const { status, _body, ok } = await requester
             .post(`/api/carts/${cartId}/product/${productId}`)
             .set("Cookie", `${cookie.name}=${cookie.value}`)
@@ -63,12 +64,28 @@ describe("Cart Test", () => {
     it("[GET] /api/carts/:cid => Endpoint to return a cart", async () => {
 
         const { status, _body, ok } = await requester
-        .get(`/api/carts/${cartId}`)
-        .set("Cookie", [`${cookie.name}=${cookie.value}`]);
-        
+            .get(`/api/carts/${cartId}`)
+            .set("Cookie", [`${cookie.name}=${cookie.value}`])
+
         expect(status).to.be.equal(200)
         expect(ok).to.be.equal(true)
         expect(_body.status).to.be.equal("Success")
+        expect(_body.payload.products).to.be.an("array")
+        expect(_body.payload._id).to.be.an("string")
+        expect(_body.payload).to.be.an("object")
+    })
+
+    it("[DELETE] /api/carts/:cid => Endpoint to delete a cart", async () => {
+
+        const { status, _body, ok } = await requester
+            .delete(`/api/carts/${cartId}`)
+            .set("Cookie", [`${cookie.name}=${cookie.value}`])
+
+        expect(status).to.be.equal(200)
+        expect(ok).to.be.equal(true)
+        expect(_body.status).to.be.equal("Success")
+        expect(_body.payload).to.be.an("object")
+        expect(_body.payload._id).to.be.an("string")
         expect(_body.payload.products).to.be.an("array")
     })
 
