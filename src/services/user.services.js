@@ -11,15 +11,17 @@ const sendEmailResetPassword = async (email) => {
 
 const resetPassword = async (email, password) => {
     const user = await userRepository.getByEmail(email)
-    if(!user) throw customErrors.notFoundError("User not found")
+    if (!user) throw customErrors.notFoundError("User not found")
     const passwordIsEqual = isValidPassword(user, password)
-    if(passwordIsEqual) throw customErrors.badRequestError("Password already exists")
-    return await userRepository.update(user._id, {password: createHash(password)})
+    if (passwordIsEqual) throw customErrors.badRequestError("Password already exists")
+    return await userRepository.update(user._id, { password: createHash(password) })
 }
 
 const changeUserRole = async (uid) => {
     const user = await userRepository.getById(uid)
     if (!user) throw customErrors.notFoundError("User not found")
+    // Validamos que los usuarios tengan los documentos necesarios para cambiar de rol
+    if (user.role === "user" && user.documents.length < 3) throw customErrors.badRequestError("You must upload all required documentation") // si el rol es usuario y no tiene los documentos le damos error
     const userRole = user.role === "premium" ? "user" : "premium"
     return await userRepository.update(uid, { role: userRole })
 }
@@ -38,4 +40,4 @@ const addDocuments = async (uid, reqFiles) => {
     return user
 }
 
-export default {sendEmailResetPassword, resetPassword, changeUserRole, addDocuments}
+export default { sendEmailResetPassword, resetPassword, changeUserRole, addDocuments }
