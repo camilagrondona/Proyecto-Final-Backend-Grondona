@@ -59,3 +59,4 @@
 2024-09-18 16:59:5931 error:  - Unexpected field
 2024-09-19 11:05:503 error:  - Unexpected field
 2024-09-19 11:06:610 error:  - Unexpected field
+2024-09-19 11:26:2638 error: [POST] /api/user/:uid/documents - Cast to ObjectId failed for value ":uid" (type string) at path "_id" for model "users"

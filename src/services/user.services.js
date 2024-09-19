@@ -24,19 +24,18 @@ const changeUserRole = async (uid) => {
     return await userRepository.update(uid, { role: userRole })
 }
 
+const addDocuments = async (uid, reqFiles) => {
+    const files = reqFiles.document
+    const userDocuments = files.map((file) => {
+        return {
+            name: file.filename,
+            reference: file.path,
+        }
+    })
 
-// const addDocuments = async (uid, reqFiles) => {
-//     const files = reqFiles.document;
-//     const userDocuments = files.map((file) => {
-//         return {
-//             name: file.filename,
-//             reference: file.path,
-//         }
-//     })
+    const user = await userRepository.update(uid, { documents: userDocuments })
 
-//     const user = await userRepository.update(uid, { documents: userDocuments })
+    return user
+}
 
-//     return user
-// }
-
-export default {sendEmailResetPassword, resetPassword, changeUserRole}
+export default {sendEmailResetPassword, resetPassword, changeUserRole, addDocuments}

@@ -3269,3 +3269,32 @@
 2024-09-19 11:16:1608 info: Server ready on port 3000
 2024-09-19 11:16:1610 info: Mongo DB connected
 2024-09-19 11:16:1610 info: Server ready on port 3000
+2024-09-19 11:17:1753 info: Mongo DB connected
+2024-09-19 11:17:1753 info: Server ready on port 3000
+2024-09-19 11:22:2233 info: Mongo DB connected
+2024-09-19 11:22:2233 info: Server ready on port 3000
+2024-09-19 11:22:2239 info: Mongo DB connected
+2024-09-19 11:22:2239 info: Server ready on port 3000
+2024-09-19 11:23:2313 info: Mongo DB connected
+2024-09-19 11:23:2313 info: Server ready on port 3000
+2024-09-19 11:23:2319 info: Mongo DB connected
+2024-09-19 11:23:2319 info: Server ready on port 3000
+2024-09-19 11:23:2328 info: Mongo DB connected
+2024-09-19 11:23:2328 info: Server ready on port 3000
+2024-09-19 11:23:2339 info: Mongo DB connected
+2024-09-19 11:23:2339 info: Server ready on port 3000
+2024-09-19 11:25:2512 info: Mongo DB connected
+2024-09-19 11:25:2512 info: Server ready on port 3000
+2024-09-19 11:25:2517 info: Mongo DB connected
+2024-09-19 11:25:2517 info: Server ready on port 3000
+2024-09-19 11:25:2529 info: Mongo DB connected
+2024-09-19 11:25:2529 info: Server ready on port 3000
+2024-09-19 11:26:2618 info: Mongo DB connected
+2024-09-19 11:26:2618 info: Server ready on port 3000
+2024-09-19 11:26:2624 info: Mongo DB connected
+2024-09-19 11:26:2624 info: Server ready on port 3000
+2024-09-19 11:26:2638 error: [POST] /api/user/:uid/documents - Cast to ObjectId failed for value ":uid" (type string) at path "_id" for model "users"
+2024-09-19 11:28:2848 info: Mongo DB connected
+2024-09-19 11:28:2848 info: Server ready on port 3000
+2024-09-19 11:31:3115 info: Mongo DB connected
+2024-09-19 11:31:3115 info: Server ready on port 3000

@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
     },
     cart: {type: mongoose.Schema.Types.ObjectId, ref: "carts"}, // Asociamos un carrito específico a cada usuario
     documents: [{name: String, reference: String}],
-    last_connection: Date
+    last_connection: Date,
 })
 
 // Modelo de user

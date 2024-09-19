@@ -27,9 +27,7 @@ router.post(
         { name: "productImg", maxCount: 1 },
         { name: "document", maxCount: 3 },
     ]),
-    async (req, res) => {
-    res.send(req.files)
-    }
+    userController.addDocuments
 )
 
 export default router
