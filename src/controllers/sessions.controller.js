@@ -1,4 +1,5 @@
 import { userResponseDto } from "../dto/user-response.dto.js"
+import userRepository from "../persistences/mongo/repositories/user.repository.js"
 import { createToken } from "../utils/jwt.js"
 import { logger } from "../utils/logger.js"
 
@@ -16,6 +17,9 @@ const register = async (req, res, next) => {
 const login = async (req, res, next) => {
     try {
         const user = req.user
+
+        await userRepository.update(user._id, { last_connection: new Date() }) // Actualizamos la fecha de última conexión
+
         const token = createToken(user) // Creamos el token
         res.cookie("token", token, { httpOnly: true }) // Guardamos el token en una cookie. 1er parametro: nombre de la cookie (token) // 2do parámetro: pasamos la info del token // 3er parámetro: a la cookie solo se puede acceder con una petición http
         const userDto = userResponseDto(user) // usamos el dto con los datos del usuario que queremos que retorne para que no nos dé toda la información completa en la response

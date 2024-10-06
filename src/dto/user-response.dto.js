@@ -18,6 +18,7 @@ export const userResponseDto = (user) => {
         first_name: user.first_name,
         email: user.email,
         role: user.role,
-        cart: user.cart
+        cart: user.cart,
+        last_connection: user.last_connection
     }
 }

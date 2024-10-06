@@ -30,4 +30,15 @@ router.post(
     userController.addDocuments
 )
 
+// Eliminar usuarios inactivos
+router.delete(
+    "/delete-inactive-users",
+    passportCall("jwt"), 
+    authorization(["admin"]), // Solo administradores pueden acceder
+    userController.deleteInactiveUsers // Controlador para eliminar usuarios inactivos
+)
+
+// Obtener todos los usuarios
+router.get("/get-all-users", passportCall("jwt"), authorization(["admin"]), userController.getAllUsers)
+
 export default router

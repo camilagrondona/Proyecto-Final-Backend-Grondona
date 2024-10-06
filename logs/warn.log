@@ -60,3 +60,5 @@
 2024-09-19 11:05:503 error:  - Unexpected field
 2024-09-19 11:06:610 error:  - Unexpected field
 2024-09-19 11:26:2638 error: [POST] /api/user/:uid/documents - Cast to ObjectId failed for value ":uid" (type string) at path "_id" for model "users"
+2024-10-03 18:29:2906 error: userRepository is not defined
+2024-10-03 18:29:2906 error:  - userRepository is not defined

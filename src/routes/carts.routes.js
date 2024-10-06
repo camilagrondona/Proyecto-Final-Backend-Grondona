@@ -8,17 +8,29 @@ const router = Router()
 
 // Configuración de solicitudes / peticiones
 
-router.post("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium", "admin"]), cartsController.addProductToCart) // middleware de check product and cart para verificar que ambos existen antes de ejecutar la función e isUserCart para chequear que ese carrito corresponde al usuario logueado
+// Buscar carrito por ID
 
-router.put ("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium", "admin"]),  cartsController.updateQuantityProductInCart)
+router.get("/:cid", passportCall("jwt"), authorization(["user", "premium"]), cartsController.getCartById) 
 
-router.delete ("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium", "admin"]), cartsController.deleteProductInCart)
+//Añadir productos al carrito
 
-router.get("/:cid", passportCall("jwt"), authorization(["user", "premium", "admin"]), cartsController.getCartById) 
+router.post("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium"]), checkProductAndCart, isUserCart, cartsController.addProductToCart)
 
-router.delete("/:cid", passportCall("jwt"), authorization(["user", "premium", "admin"]), cartsController.deleteAllProductsInCart)
+// Actualizar cantidad de un producto en el carrito
 
-router.get("/:cid/purchase", passportCall("jwt"), authorization(["user", "premium", "admin"]), cartsController.purchaseCart)
+router.put ("/:cid/product/:pid", passportCall("jwt"), authorization("user"), checkProductAndCart, cartsController.updateQuantityProductInCart)
+
+// Borrar un producto del carrito 
+
+router.delete ("/:cid/product/:pid", passportCall("jwt"), authorization(["user", "premium"]),checkProductAndCart, cartsController.deleteProductInCart)
+
+// Borrar todos los productos del carrito
+
+router.delete("/:cid", passportCall("jwt"), authorization(["user", "premium"]), cartsController.deleteAllProductsInCart)
+
+// Realizar la compra de los productos del carrito
+
+router.get("/:cid/purchase", passportCall("jwt"), authorization(["user", "premium"]), cartsController.purchaseCart)
 
 
 export default router

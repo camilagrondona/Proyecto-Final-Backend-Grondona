@@ -11,12 +11,15 @@ router.post("/register", passportCall("register"), sessionControllers.register)
 
 router.post("/login", passportCall ("login"), sessionControllers.login)
 
-router.get("/current", passportCall("jwt"), authorization(["user", "premium", "admin"]), sessionControllers.current) // Verificación del token
+router.get("/current", passportCall("jwt"), authorization("user"), sessionControllers.current) // Verificación del token
 
-router.get("/google", passport.authenticate("google", {
+router.get(
+    "/google", 
+    passport.authenticate("google", {
     scope: ["https://www.googleapis.com/auth/userinfo.email", "https://www.googleapis.com/auth/userinfo.profile"], // Le indicamos los endpoint de donde va a sacar la info  
     session: false
-}), sessionControllers.loginGoogle) // Login de passport con google 
+}), 
+sessionControllers.loginGoogle) // Login de passport con google 
 
 router.get("/logout", sessionControllers.logout)
 
@@ -31,12 +34,12 @@ router.get("/email", async (req, res) => {
 
     await sendMail("ornella.grondona@gmail.com", "Test nodemailer", "Este es un mensaje de prueba", template)
 
-    return res.status(200).json({status:"Success", message: "Email enviado"})
+    return res.status(200).json({status:"Success", message: "Email sent"})
 })
 
 router.get("/sms", async (req, res) => {
     await sendSMS("+18777804236", "Coder es lo más!!")
-    return res.status(200).json({status:"Success", message: "SMS enviado"})
+    return res.status(200).json({status:"Success", message: "SMS sent"})
 })
 
 export default router

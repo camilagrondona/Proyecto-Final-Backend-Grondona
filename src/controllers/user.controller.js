@@ -1,3 +1,4 @@
+import { userResponseDto } from "../dto/user-response.dto.js"
 import customErrors from "../errors/customErrors.js"
 import userServices from "../services/user.services.js"
 
@@ -49,4 +50,30 @@ const addDocuments = async (req, res, next) => {
     }
 }
 
-export default { sendEmailResetPassword, resetPassword, changeUserRole, addDocuments }
+const getAllUsers = async (req, res, next) => {
+    try {
+        // Llamamos al servicio que obtiene todos los usuarios de la base de datos
+        const users = await userServices.getAllUsers()
+        
+        // Aplicamos el DTO a cada usuario para filtrar la información
+        const usersDto = users.map(user => userResponseDto(user))
+        
+        // Enviamos la respuesta con los usuarios filtrados
+        res.status(200).json({ status: "Success", users: usersDto })
+    } catch (error) {
+        error.path = "[GET] /api/user/get-all-users"
+        next(error)
+    }
+}
+
+const deleteInactiveUsers = async (req, res, next) => {
+    try {
+        const deletedUsers = await userServices.deleteInactiveUsers() // Servicio para eliminar usuarios inactivos
+        res.status(200).json({ status: "Success", deletedUsers })
+    } catch (error) {
+        error.path = "[DELETE] /api/user/delete-inactive-users"
+        next(error)
+    }
+}
+
+export default { sendEmailResetPassword, resetPassword, changeUserRole, addDocuments, getAllUsers, deleteInactiveUsers }

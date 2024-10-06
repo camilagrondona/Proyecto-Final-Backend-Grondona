@@ -1,14 +1,15 @@
 import { productResponseDto } from "../dto/product-response.dto.js"
-import customErrors from "../errors/customErrors.js"
 import error from "../errors/customErrors.js"
 import productsRepository from "../persistences/mongo/repositories/products.repository.js"
+import { sendMail } from "../utils/sendMails.js"
 
 const create = async (data, user) => {
     let productData = data
     if(user.role === "premium"){
-        productData = {...data, owner: user._id}
+        productData = {...data, owner: user.email}
     }
     const product = await productsRepository.create(productData)
+    if (!product) throw error.badRequestError()
     return product
 }
 
@@ -32,9 +33,18 @@ const update = async (id, data) => {
 
 const deleteOne = async (id, user) => {
     const productData = await productsRepository.getById(id)
-    if(user.role === "premium" && productData.owner !== user._id) {
-        throw customErrors.unauthorizedError("User not authorized")
+    if(user.role === "premium" && productData.owner !== user.email) {
+        throw error.unauthorizedError("User not authorized to delete product")
     }
+
+    if(user.role === "admin" && productData.owner !== "admin") { // Si el usuario es un admin y el producto no es de un admin le enviamos un email al owner y le notificamos que su producto fue eliminado. 
+        await sendMail(
+            productData.owner, 
+            "Product deleted", 
+            `Admin deleted product ${productData.title}`
+        )
+    }
+
     const product = await productsRepository.deleteOne(id)
     if (!product) throw error.notFoundError(`Product id ${id} not found`)
     return product
